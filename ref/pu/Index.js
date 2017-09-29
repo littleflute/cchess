@@ -1,39 +1,42 @@
-var v="v0.1.1";
-var n = 0;
-n++;
-var s = "p";
-s += n;
-s += ".txt";
-function blDiv(oBoss,id,html){
-    var r = document.getElementById(id);
-    if(!r){
-        r = document.createElement("div");
-        r.id = id;
-        r.style.border = "1px solid #3d3d3d";
-        r.style.position = "fixed";
-        r.style.top	=0;
-        r.style.width = "100%";
-        r.style.height = "100%";
-        r.style.backgroundColor="rgb(0,100,120)";
-        r.style.display = "none";
 
-    	r.innerHTML = html; 
-    	if(oBoss!=null) oBoss.appendChild(r);
+var gN   = 0;
+var gStr = "";
+function getFileHref(n)
+{
+	gN = n;
+    var s = "https://littleflute.github.io/cchess/ref/pu/p" + n + ".txt";
+    return s;
+}
+function loadDoc(src) {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      var str = this.responseText;
+   //   document.getElementById("demo").innerHTML =str;
+      
+      //
+      var pos = str.indexOf("xddbg001");
+      
+      document.getElementById("debug").innerHTML = pos;
+      if(pos !=-1)
+      {
+         gStr += gN;
+         gStr += ": ";
+         gStr += "<a href=' ";
+		 gStr += src;
+         gStr += "'> ";
+		 gStr += gN;
+		 gStr += "</a>";
+         gStr += "<br>";
+         document.getElementById("myPu").innerHTML = gStr;
+		 loadDoc(getFileHref(gN+1));
+
+      }
+     //*/
     }
-    return r;
+  };
+  xhttp.open("GET", src, true);
+  xhttp.send();
 }
-function parsMoveList(param)
-{ 
-    var oBass = document.getElementById("myPu");
-    var p1 = blDiv(oBass,"p1",v);
-}
-$("#myPu").load(s, function(responseTxt, statusTxt, xhr){
-            if(statusTxt == "success")
-            { 
-                parsMoveList(responseTxt);
-            }
-            if(statusTxt == "error")
-            {
-                alert("Error: " + xhr.status + ": " + xhr.statusText);
-            }
-        });
+ 
+loadDoc(getFileHref(1));
