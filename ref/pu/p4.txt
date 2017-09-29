@@ -1,4 +1,5 @@
 {
+    "v":"v0.0.2",
     "pw":"xddbg001",
     "name":nameTest,
     "moveList":"  1.炮八平五      炮２平５  
