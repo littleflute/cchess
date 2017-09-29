@@ -1,5 +1,5 @@
 {
-    "v":"v0.0.5",
+    "v":"v0.0.6",
     "id":"p1",
     "pw":"xddbg001",
     "name":"nameTest",
