@@ -61,6 +61,7 @@ body {margin:0;}
 <div id="xdUI">
   <div id = "runjsDiv" style="width:100%;height:100%;display:none">
 	<textarea id = "runjsTA" style="width:300px;height:200px;">
+    alert("runjsTA");
 	</textarea> 
 </div> 
 <button onclick=runJSDiv.onoff(this)>on/off</button>
@@ -69,18 +70,35 @@ var runJSDiv 	= document.getElementById("runjsDiv");
 runJSDiv.bShow = false;
 runJSDiv.onoff = function (btn)
 {
-	if(runJSDiv.bShow)
+	var d = runJSDiv;
+	if(d.bShow)
     {
-    	runJSDiv.style.display = "none";
+    	d.style.display = "none";
     	btn.style.backgroundColor = "green";
-        runJSDiv.bShow = false;
+        d.bShow = false;
     }
     else
     {
-    	runJSDiv.style.display = "block";
+    	d.style.display = "block";
     	btn.style.backgroundColor = "red";
-        runJSDiv.bShow = true;
+        d.bShow = true;
+        d.blBtn("2Run","Run");
     }
+}
+runJSDiv.blBtn = function (id,html){
+    var r = document.getElementById(id);
+    if(!r){
+        r = document.createElement("button");
+        r.id = id;
+    	r.style.backgroundColor = "green";
+    }
+    r.innerHTML = html;
+    r.onclick = function(){
+    	var t = document.getElementById("runjsTA");
+		eval(t.value);
+	}
+    runJSDiv.appendChild(r);
+    return r;
 }
 </script>
 </div>
@@ -91,7 +109,7 @@ runJSDiv.onoff = function (btn)
   <a href="..">[..]</a>
   <a href="https://www.w3schools.com/howto/howto_css_fixed_menu.asp">[ref1:navbar]</a>
   <a  target="_blank" href="https://www.w3schools.com/jquery/tryit.asp?filename=tryjquery_ajax_load2">[dev1:w3schools]</a>
-  <a target="_blank"  href="https://github.com/littleflute/cchess/edit/master/ref/DhtmlXQ_www_dpxq_com/index.htm">v0.1.4</a> 
+  <a target="_blank"  href="https://github.com/littleflute/cchess/edit/master/ref/DhtmlXQ_www_dpxq_com/index.htm">v0.1.6</a> 
 </div>
 	
 </body>
