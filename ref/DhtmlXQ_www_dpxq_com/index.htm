@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +11,7 @@
 <meta name="Copyright" content="东萍公司 www.dpxq.com 版权所有">
 <meta name="keywords" content="象棋,中国象棋,象棋棋谱,东萍象棋">
 <meta name="description" content="全文本 DHTML 动态棋盘">
-<title>全文本 DHTML 动态棋盘 dpxq.com 版权所有</title>
+<title>study</title>
 	
 <style>
 body {margin:0;}
@@ -38,24 +39,57 @@ body {margin:0;}
   margin-bottom: 30px;
   height: 1500px; /* Used in this example to enable scrolling */
 }
+#xdUI {
+  overflow: hidden;
+  background-color: #33f;
+  position: fixed;
+  bottom: 50px; 
+}
 </style>
 </head>
 <body onkeydown="Xnc_KEvent(event.keyCode)" style="background-color:transparent">
 
-<div class="navbar">
-  <a href="..">[..]</a>
-  <a href="https://www.w3schools.com/howto/howto_css_fixed_menu.asp">[ref1:navbar]</a>
-  <a href="https://github.com/littleflute/cchess/edit/master/ref/DhtmlXQ_www_dpxq_com/index.htm">v0.1.0</a> 
-</div>
-	
 <div class="main">
 <script type="text/javascript">
 <!--
-	if (!DhtmlXQimgpath) var DhtmlXQimgpath = '';
+	if (!DhtmlXQimgpath) var DhtmlXQimgpath = 'https://littleflute.github.io/cchess/ref/DhtmlXQ_www_dpxq_com/';
 	document.write('<scr'+'ipt type="text/javascr'+'ipt" src="'+DhtmlXQimgpath+'DhtmlXQ_www_dpxq_com.js"></scr'+'ipt>');
+    
 //-->
 </script>
 	
+<div id="xdUI">
+<textarea id = "runjs" style="width:500px;height:200px;display:none">
+</textarea> 
+<button onclick=runJS.onoff(this)>on/off</button>
+<script>
+var runJS 	= document.getElementById("runjs");
+runJS.bShow = false;
+runJS.onoff = function (btn)
+{
+	if(runJS.bShow)
+    {
+    	runJS.style.display = "none";
+    	btn.style.backgroundColor = "green";
+        runJS.bShow = false;
+    }
+    else
+    {
+    	runJS.style.display = "block";
+    	btn.style.backgroundColor = "red";
+        runJS.bShow = true;
+    }
+}
+</script>
 </div>
+</div>
+
+
+<div class="navbar">
+  <a href="..">[..]</a>
+  <a href="https://www.w3schools.com/howto/howto_css_fixed_menu.asp">[ref1:navbar]</a>
+  <a target="_blank"  href="https://github.com/littleflute/cchess/edit/master/ref/DhtmlXQ_www_dpxq_com/index.htm">v0.1.2</a> 
+</div>
+	
 </body>
 </html>
