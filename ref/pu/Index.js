@@ -1,5 +1,5 @@
 
-var v_Index_js 	= "v0.0.8";
+var v_Index_js 	= "v0.0.9";
 var pw		= "xddbg001";
 var gN   = 0;
 var gStr = "";
@@ -31,9 +31,10 @@ function blDiv(oBoss,id,html){
 
 function parseText2Div(idDiv,txt)
 {
-	var myObj = JSON.parse(txt);
         var myBoss = document.getElementById(idDiv);
-	var d1	= blDiv(myBoss,myObj.id,myObj.v);
+	var strID = "p"+gN;
+	var d1	= blDiv(myBoss,strID,strID);
+	//var myObj = JSON.parse(txt);
 }
 
 function loadDoc(src) {
@@ -55,7 +56,7 @@ function loadDoc(src) {
 	 gStr += "</a>";
          gStr += "<br>";
          document.getElementById("myPu").innerHTML = gStr;
-	// parseText2Div("myPu2",str);     
+	 parseText2Div("myPu2",str);     
 	 loadDoc(getFileHref(gN+1));
       } 
     }
