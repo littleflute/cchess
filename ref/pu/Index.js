@@ -1,5 +1,5 @@
 
-var v_Index_js 	= "v0.0.7";
+var v_Index_js 	= "v0.0.8";
 var pw		= "xddbg001";
 var gN   = 0;
 var gStr = "";
