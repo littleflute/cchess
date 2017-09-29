@@ -1,5 +1,5 @@
 
-var v_Index_js 	= "v0.0.5";
+var v_Index_js 	= "v0.0.6";
 var pw		= "xddbg001";
 var gN   = 0;
 var gStr = "";
@@ -55,7 +55,7 @@ function loadDoc(src) {
 	 gStr += "</a>";
          gStr += "<br>";
          document.getElementById("myPu").innerHTML = gStr;
-	 parseText2Div("myPu2",str);     
+	// parseText2Div("myPu2",str);     
 	 loadDoc(getFileHref(gN+1));
       } 
     }
