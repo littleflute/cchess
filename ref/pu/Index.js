@@ -1,4 +1,4 @@
-var v="v0.0.8";
+var v="v0.0.9";
 var n = 0;
 n++;
 var s = "p";
@@ -24,7 +24,7 @@ function blDiv(oBoss,id,html){
 }
 function parsMoveList(param)
 { 
-            var p1 = blDiv("myPu","p1",v);
+            var p1 = blDiv($("#myPu"),"p1",v);
 }
 $("#myPu").load(s, function(responseTxt, statusTxt, xhr){
             if(statusTxt == "success")
