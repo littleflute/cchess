@@ -59,25 +59,27 @@ body {margin:0;}
 </script>
 	
 <div id="xdUI">
-<textarea id = "runjs" style="width:500px;height:200px;display:none">
-</textarea> 
-<button onclick=runJS.onoff(this)>on/off</button>
+  <div id = "runjsDiv" style="width:100%;height:100%;display:none">
+	<textarea id = "runjsTA" style="width:300px;height:200px;">
+	</textarea> 
+</div> 
+<button onclick=runJSDiv.onoff(this)>on/off</button>
 <script>
-var runJS 	= document.getElementById("runjs");
-runJS.bShow = false;
-runJS.onoff = function (btn)
+var runJSDiv 	= document.getElementById("runjsDiv");
+runJSDiv.bShow = false;
+runJSDiv.onoff = function (btn)
 {
-	if(runJS.bShow)
+	if(runJSDiv.bShow)
     {
-    	runJS.style.display = "none";
+    	runJSDiv.style.display = "none";
     	btn.style.backgroundColor = "green";
-        runJS.bShow = false;
+        runJSDiv.bShow = false;
     }
     else
     {
-    	runJS.style.display = "block";
+    	runJSDiv.style.display = "block";
     	btn.style.backgroundColor = "red";
-        runJS.bShow = true;
+        runJSDiv.bShow = true;
     }
 }
 </script>
@@ -88,8 +90,8 @@ runJS.onoff = function (btn)
 <div class="navbar">
   <a href="..">[..]</a>
   <a href="https://www.w3schools.com/howto/howto_css_fixed_menu.asp">[ref1:navbar]</a>
-  <a target="_blank"  href="https://github.com/littleflute/cchess/edit/master/ref/DhtmlXQ_www_dpxq_com/index.htm">v0.1.3</a> 
   <a  target="_blank" href="https://www.w3schools.com/jquery/tryit.asp?filename=tryjquery_ajax_load2">[dev1:w3schools]</a>
+  <a target="_blank"  href="https://github.com/littleflute/cchess/edit/master/ref/DhtmlXQ_www_dpxq_com/index.htm">v0.1.4</a> 
 </div>
 	
 </body>
