@@ -1,5 +1,6 @@
 
-var v_Index_js = "v0.0.2";
+var v_Index_js 	= "v0.0.3";
+var pw		= "xddbg001";
 var gN   = 0;
 var gStr = "";
 function getFileHref(n)
@@ -12,11 +13,8 @@ function loadDoc(src) {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-      var str = this.responseText;
-   //   document.getElementById("demo").innerHTML =str;
-      
-      //
-      var pos = str.indexOf("xddbg001");
+      var str = this.responseText; 
+      var pos = str.indexOf(pw);
       
       document.getElementById("debug").innerHTML = pos;
       if(pos !=-1)
@@ -32,8 +30,7 @@ function loadDoc(src) {
          document.getElementById("myPu").innerHTML = gStr;
 		 loadDoc(getFileHref(gN+1));
 
-      }
-     //*/
+      } 
     }
   };
   xhttp.open("GET", src, true);
