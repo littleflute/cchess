@@ -1,5 +1,4 @@
-
-var v_Index_js 	= "v0.1.6";
+var v_Index_js 	= "v0.1.7";
 var pw		= "xddbg001";
 var gN   = 0;
 var gStr = "";
@@ -27,10 +26,11 @@ function blDiv(oBoss,id,html){
 
 function parseText2Div(idDiv,txt)
 {
-        var myBoss = document.getElementById(idDiv);
-	var strID = "p"+gN;
-	var d1	= blDiv(myBoss,strID,strID);
-	//var myObj = JSON.parse(txt);
+    var myBoss = document.getElementById(idDiv);
+	var strID = "p"+gN; 
+    var myObj = JSON.parse(txt);
+//	var d1	= blDiv(myBoss,strID,txt);
+ 	var d1	= blDiv(myBoss,myObj.id,myObj.moveList);
 }
 
 function loadDoc(src) {
@@ -62,3 +62,6 @@ function loadDoc(src) {
 }
  
 loadDoc(getFileHref(1));
+
+var vb = document.getElementById("indexJs");  
+var vv = blDiv(vb,"vv",v_Index_js);
