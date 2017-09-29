@@ -1,14 +1,5 @@
-<!DOCTYPE html>
-<html>
-<body>
  
-<div id="indexJs" style="border:1px green solid"></div>
-<div id="debug"></div>
-<div id="myPu"></div>
-<div id="myPu2"></div>
-
-<script>
-var v_Index_js 	= "v0.1.8";
+var v_Index_js 	= "v0.1.9";
 var pw		= "xddbg001";
 var gN   = 0;
 var gStr = "";
@@ -79,8 +70,4 @@ function loadDoc(src) {
 loadDoc(getFileHref(1));
 
 var vb = document.getElementById("indexJs");  
-var vv = blDiv(vb,"vv",v_Index_js);
-</script>
- 
-</body>
-</html>
+var vv = blDiv(vb,"vv",v_Index_js); 
