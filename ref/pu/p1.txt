@@ -1,8 +1,8 @@
 {
-    "v":"v0.0.4",
+    "v":"v0.0.5",
     "id":"p1",
     "pw":"xddbg001",
-    "name":nameTest,
+    "name":"nameTest",
     "moveList":"  1.炮八平五      炮２平５  
   2.马八进七      马２进３  
   3.车九进一      车１平２  
