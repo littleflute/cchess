@@ -1,5 +1,5 @@
 
-var v_Index_js 	= "v0.1.3";
+var v_Index_js 	= "v0.1.4";
 var pw		= "xddbg001";
 var gN   = 0;
 var gStr = "";
@@ -16,10 +16,6 @@ function blDiv(oBoss,id,html){
         r = document.createElement("div");
         r.id = id;
         r.style.border = "1px solid #3d3d3d";
-        r.style.position = "fixed";
-        r.style.top	=0;
-        r.style.width = "100%";
-        r.style.height = "100%";
         r.style.backgroundColor="rgb(0,100,120)";
         r.style.display = "block";
 
