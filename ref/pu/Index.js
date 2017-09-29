@@ -1,5 +1,5 @@
 
-var v_Index_js 	= "v0.1.0";
+var v_Index_js 	= "v0.1.1";
 var pw		= "xddbg001";
 var gN   = 0;
 var gStr = "";
@@ -21,7 +21,7 @@ function blDiv(oBoss,id,html){
         r.style.width = "100%";
         r.style.height = "100%";
         r.style.backgroundColor="rgb(0,100,120)";
-        r.style.display = "none";
+        r.style.display = "block";
 
     	r.innerHTML = html; 
     	if(oBoss!=null) oBoss.appendChild(r);
