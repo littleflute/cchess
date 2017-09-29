@@ -64,7 +64,7 @@ body {margin:0;}
     alert("runjsTA");
 	</textarea> 
 </div> 
-<button onclick=runJSDiv.onoff(this)>on/off</button>
+<button onclick=runJSDiv.onoff(this) id>on/off</button>
 <script>
 var runJSDiv 	= document.getElementById("runjsDiv");
 runJSDiv.bShow = false;
@@ -82,7 +82,6 @@ runJSDiv.onoff = function (btn)
     	d.style.display = "block";
     	btn.style.backgroundColor = "red";
         d.bShow = true;
-        d.blBtn("2Run","Run");
     }
 }
 runJSDiv.blBtn = function (id,html){
@@ -92,13 +91,15 @@ runJSDiv.blBtn = function (id,html){
         r.id = id;
     	r.style.backgroundColor = "green";
     }
-    r.innerHTML = html;
-    r.onclick = function(){
-    	var t = document.getElementById("runjsTA");
-		eval(t.value);
-	}
+    r.innerHTML = html; 
     runJSDiv.appendChild(r);
     return r;
+}
+ 
+var myRun = runJSDiv.blBtn("2Run","Run");
+myRun.onclick = function(){
+    		var t = document.getElementById("runjsTA");
+			eval(t.value);
 }
 </script>
 </div>
@@ -109,7 +110,7 @@ runJSDiv.blBtn = function (id,html){
   <a href="..">[..]</a>
   <a href="https://www.w3schools.com/howto/howto_css_fixed_menu.asp">[ref1:navbar]</a>
   <a  target="_blank" href="https://www.w3schools.com/jquery/tryit.asp?filename=tryjquery_ajax_load2">[dev1:w3schools]</a>
-  <a target="_blank"  href="https://github.com/littleflute/cchess/edit/master/ref/DhtmlXQ_www_dpxq_com/index.htm">v0.1.6</a> 
+  <a target="_blank"  href="https://github.com/littleflute/cchess/edit/master/ref/DhtmlXQ_www_dpxq_com/index.htm">v0.1.7</a> 
 </div>
 	
 </body>
