@@ -95,12 +95,22 @@ runJSDiv.blBtn = function (id,html){
     runJSDiv.appendChild(r);
     return r;
 }
- 
+runJSDiv.loadJS2TA = function (href) {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) { 
+      var t = document.getElementById("runjsTA");
+	  t.value = this.responseText; 
+    }
+  };
+  xhttp.open("GET", href, true);
+  xhttp.send();
+}
+  
 var myLoad1 = runJSDiv.blBtn("myLoad1","load1");
 myLoad1.style.backgroundColor = "gray";
 myLoad1.onclick = function(){
-    		var t = document.getElementById("runjsTA");
-			t.value = "alert('load1')";
+	var href = "https://littleflute.github.io/blog/js/blDraggableDIV.js";   		runJSDiv.loadJS2TA(href);		
 }
 var myRun = runJSDiv.blBtn("2Run","Run");
 myRun.onclick = function(){
@@ -116,7 +126,7 @@ myRun.onclick = function(){
   <a href="..">[..]</a>
   <a href="https://www.w3schools.com/howto/howto_css_fixed_menu.asp">[ref1:navbar]</a>
   <a  target="_blank" href="https://www.w3schools.com/jquery/tryit.asp?filename=tryjquery_ajax_load2">[dev1:w3schools]</a>
-  <a target="_blank"  href="https://github.com/littleflute/cchess/edit/master/ref/DhtmlXQ_www_dpxq_com/index.htm">v0.1.8</a> 
+  <a target="_blank"  href="https://github.com/littleflute/cchess/edit/master/ref/DhtmlXQ_www_dpxq_com/index.htm">v0.1.9</a> 
 </div>
 	
 </body>
