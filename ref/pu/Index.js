@@ -1,14 +1,41 @@
 
-var v_Index_js 	= "v0.0.3";
+var v_Index_js 	= "v0.0.4";
 var pw		= "xddbg001";
 var gN   = 0;
 var gStr = "";
 function getFileHref(n)
 {
-	gN = n;
+    gN = n;
     var s = "https://littleflute.github.io/cchess/ref/pu/p" + n + ".txt";
     return s;
 }
+
+function blDiv(oBoss,id,html){
+    var r = document.getElementById(id);
+    if(!r){
+        r = document.createElement("div");
+        r.id = id;
+        r.style.border = "1px solid #3d3d3d";
+        r.style.position = "fixed";
+        r.style.top	=0;
+        r.style.width = "100%";
+        r.style.height = "100%";
+        r.style.backgroundColor="rgb(0,100,120)";
+        r.style.display = "none";
+
+    	r.innerHTML = html; 
+    	if(oBoss!=null) oBoss.appendChild(r);
+    }
+    return r;
+} 
+
+function parseText2Div(idDiv,txt)
+{
+	var myObj = JSON.parse(txt);
+        var myBoss = document.getElementById(idDiv);
+	var d1	= blDiv(myBoss,myObj.id,myObj.v);
+}
+
 function loadDoc(src) {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
@@ -22,14 +49,14 @@ function loadDoc(src) {
          gStr += gN;
          gStr += ": ";
          gStr += "<a target='_blank' href=' ";
-		 gStr += src;
+	 gStr += src;
          gStr += "'> ";
-		 gStr += gN;
-		 gStr += "</a>";
+	 gStr += gN;
+	 gStr += "</a>";
          gStr += "<br>";
          document.getElementById("myPu").innerHTML = gStr;
-		 loadDoc(getFileHref(gN+1));
-
+	 parseText2Div(divID,str);     
+	 loadDoc(getFileHref(gN+1));
       } 
     }
   };
