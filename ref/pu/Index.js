@@ -1,4 +1,5 @@
 
+var v_Index_js = "v0.0.2";
 var gN   = 0;
 var gStr = "";
 function getFileHref(n)
@@ -22,7 +23,7 @@ function loadDoc(src) {
       {
          gStr += gN;
          gStr += ": ";
-         gStr += "<a href=' ";
+         gStr += "<a target='_blank' href=' ";
 		 gStr += src;
          gStr += "'> ";
 		 gStr += gN;
