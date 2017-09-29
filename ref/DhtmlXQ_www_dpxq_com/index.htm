@@ -61,7 +61,8 @@ body {margin:0;}
 <div id="xdUI">
   <div id = "runjsDiv" style="width:100%;height:100%;display:none">
 	<textarea id = "runjsTA" style="width:300px;height:200px;">
-    alert("runjsTA");
+var div1= runJSDiv.blDiv(runJSDiv,"div1","div1"); 	
+var b11= runJSDiv.blBtn(div1,"b11","b11");
 	</textarea> 
 </div> 
 <button onclick=runJSDiv.onoff(this) id>on/off</button>
@@ -84,7 +85,7 @@ runJSDiv.onoff = function (btn)
         d.bShow = true;
     }
 }
-runJSDiv.blBtn = function (id,html){
+runJSDiv.blBtn = function (oBoss,id,html){
     var r = document.getElementById(id);
     if(!r){
         r = document.createElement("button");
@@ -92,7 +93,18 @@ runJSDiv.blBtn = function (id,html){
     	r.style.backgroundColor = "green";
     }
     r.innerHTML = html; 
-    runJSDiv.appendChild(r);
+    oBoss.appendChild(r);
+    return r;
+}
+runJSDiv.blDiv = function (oBoss,id,html){
+    var r = document.getElementById(id);
+    if(!r){
+        r = document.createElement("div");
+        r.id = id;
+    	r.style.backgroundColor = "green";
+    }
+    r.innerHTML = html; 
+    oBoss.appendChild(r);
     return r;
 }
 runJSDiv.blLink = function (id,html,href){
@@ -121,7 +133,7 @@ runJSDiv.loadJS2TA = function (href) {
   xhttp.send();
 }
   
-var myLoad1 = runJSDiv.blBtn("myLoad1","Load1");
+var myLoad1 = runJSDiv.blBtn(runJSDiv,"myLoad1","Load1");
 myLoad1.style.backgroundColor = "gray";
 myLoad1.onclick = function(){
 	var href = "https://littleflute.github.io/blog/js/blDraggableDIV.js";   		runJSDiv.loadJS2TA(href);		
@@ -131,7 +143,7 @@ myEdit1.style.backgroundColor = "yellow";
 myEdit1.onclick = function(){
 	var href = "https://littleflute.github.io/blog/js/blDraggableDIV.js";   		//alert(this);		
 }
-var myRun = runJSDiv.blBtn("2Run","Run");
+var myRun = runJSDiv.blBtn(runJSDiv,"2Run","Run");
 myRun.onclick = function(){
     		var t = document.getElementById("runjsTA");
 			eval(t.value);
@@ -146,7 +158,7 @@ myRun.onclick = function(){
   <a href="https://www.w3schools.com/howto/howto_css_fixed_menu.asp">[ref1:navbar]</a>
   <a  target="_blank" href="https://www.w3schools.com/jquery/tryit.asp?filename=tryjquery_ajax_load2">[dev1:w3schools]</a>
   <a target="_blank" href="https://littleflute.github.io/cchess/ref/DhtmlXQ_www_dpxq_com/">+me</a>
-  <a target="_blank"  href="https://github.com/littleflute/cchess/edit/master/ref/DhtmlXQ_www_dpxq_com/index.htm">v0.2.2</a> 
+  <a target="_blank"  href="https://github.com/littleflute/cchess/edit/master/ref/DhtmlXQ_www_dpxq_com/index.htm">v0.2.4</a> 
 </div>
 	
 </body>
