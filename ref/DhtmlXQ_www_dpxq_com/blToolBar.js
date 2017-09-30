@@ -1,4 +1,4 @@
-var v_blToolBar = "v0.0.2";
+var v_blToolBar = "v0.0.3";
 var xdUI 	= document.getElementById("xdUI");
 var jd  = runJSDiv;
 
