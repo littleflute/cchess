@@ -1,8 +1,8 @@
-var v_blToolBar = "v0.0.7";
+var v_blToolBar = "v0.0.8";
 var xdUI 	= document.getElementById("xdUI");
 var jd  = runJSDiv;
 
-var tb1 = jd.blDiv(xdUI,"ToolBar1","TB1:");
+var tb1 = jd.blDiv(xdUI,"ToolBar1","Real:");
 tb1.style.backgroundColor = "green";
 var btnReal1 = jd.blBtn(tb1,"real1","real1");
 btnReal1.onclick = function(){
