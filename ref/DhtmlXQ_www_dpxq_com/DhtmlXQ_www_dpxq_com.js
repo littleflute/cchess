@@ -1,4 +1,4 @@
-var v_xd_This_File = "v0.0.2";
+var v_xd_This_File = "v0.0.3";
 var isBIG5='';
 var PVer='170928';
 var TT=[Number(new Date()),0,0,0,0,0];
@@ -15,6 +15,8 @@ try {P=parent.document.body;} catch(e) {NoFile=true;TongYu=false;}
 var B='8979695949392919097717866646260600102030405060708012720323436383';
 var REOK=checkRegExp();
 var tQZ='\u8F66\u9A6C\u76F8\u4ED5\u5E05\u4ED5\u76F8\u9A6C\u8F66\u70AE\u70AE\u5175\u5175\u5175\u5175\u5175\u8F66\u9A6C\u8C61\u58EB\u5C06\u58EB\u8C61\u9A6C\u8F66\u70AE\u70AE\u5352\u5352\u5352\u5352\u5352';
+tQZ='车马相仕帅仕相马车炮炮兵兵兵兵兵车马象士将士象马车炮炮卒卒卒卒卒';
+
 var iQZ='r1r2r3r4r5r4r3r2r1r6r6r7r7r7r7r7b1b2b3b4b5b4b3b2b1b6b6b7b7b7b7b7';
 if (!DhtmlXQimgpath) var DhtmlXQimgpath='';if (!ads_dpxq) var ads_dpxq='';if (!isMXQ) var isMXQ=false;if (!ads_board) var ads_board='\u695A\u3000\u3000\u3000\u6CB3\u3000\u3000\u3000\u6C49\u3000\u3000\u3000\u754C';
 var isSP=(NoFile)?false:((parent.location.href.search(/\/hldcg\/search(\/?$|\/?\?.*|\/(index|mini)\.asp.*)/gi)!=-1)?true:false);
