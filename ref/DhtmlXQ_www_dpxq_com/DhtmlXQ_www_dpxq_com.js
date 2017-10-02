@@ -1,3 +1,4 @@
+var v_xd_This_File = "v0.0.2";
 var isBIG5='';
 var PVer='170928';
 var TT=[Number(new Date()),0,0,0,0,0];
