@@ -1,4 +1,4 @@
-var v_xd_This_File = "v0.0.3";
+var v_xd_This_File = "v0.0.4";
 var isBIG5='';
 var PVer='170928';
 var TT=[Number(new Date()),0,0,0,0,0];
@@ -649,6 +649,8 @@ function initboard()
 	s+=cDIV(6,1,w2-7,'',0,typ,'','\u68CB\u8C31\u5E8F\u5217\u3000[<a href="javascript:HideMove();" id="hidemove">\u9690\u85CF</a>]');
 	s+=cDIV(2,thh+1,w2-3,ln*lh,0,'overflow:auto;overflow-x:hidden;'+CPIMG,'id="m_scroll"','head');
 	s+=('<div id="m_text" style="height:'+(ln*lh+1)+'px;-moz-user-select:none;" onselectstart="return false;">');
+	s+=('  <div id="xdVer" onmouseup="gotonum(-1)" style="background-color:'+bsColor+';color:#1ff;">');
+	s+= v_xd_This_File;
 	s+=('  <div id="move_0" onmouseup="gotonum(0)" style="background-color:'+bsColor+';color:#fff;">====\u68CB\u5C40\u5F00\u59CB</div>');
 	s+=('</div>');
 	s+=('</div>');
