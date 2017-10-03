@@ -7,8 +7,7 @@
 <body>
   <script>
     function blClass(){
-        this.blCreateFlashCChessBord = function(oDivBoss){
-             
+        this.blCreateFlashCChessBord = function(oDivBoss,id,ml){             
             var s = "";
             s += '<embed ';
             s += 'src="';
@@ -17,9 +16,11 @@
             s += 'pluginspage="http://www.macromedia.com/go/getflashplayer"';         
             s += 'allowScriptAccess="always" quality="high" wmode="transparent"';         
             s += 'flashvars="MoveList=';           
-            s += 'H2-E2+H9-G7+H0-G2+I9-H9+I0-H0+B9-C7+C3-C4+G6-G5+H0-H6+H7-I7+H6-G6+D9-E8+B0-C2+I7-I8+B2-A2+A9-B9+A0-B0+"';         
+            s += ml;
+            s += '"';         
             s += '/>';
-            var r = this.blDiv(oDivBoss,"FlashCChessBord",s);      
+            var r = this.blDiv(oDivBoss,id,s);    
+            var t = this.blDiv(r,id+"title",id+":"+ml);     
             return r;
         }
         this.blDiv = function (oBoss,id,html){
@@ -32,13 +33,29 @@
      
             oBoss.appendChild(r);
            return r;
-        } 
+        }
+        this.blLink = function (oBoss,id,html,href,bkClr){
+            var r = document.getElementById(id);
+            if(!r){
+                r = document.createElement("a");
+    	        var t = document.createTextNode(html);
+    	        r.setAttribute("href", href);
+    	        r.setAttribute("target", "_blank");
+                r.id = id; 
+    	        r.style.backgroundColor = bkClr?bkClr:"blue";
+            }
+            r.innerHTML = html; 
+            oBoss.appendChild(r);
+            return r;
+         }
     }
     var blObj = {};
     blObj.run = function(){
         var blc = new blClass;
-        var main = blc.blDiv(document.body,"mainDiv","mainDiv_v0.0.3"); 
-        var main = blc.blCreateFlashCChessBord(main); 
+        var main = blc.blDiv(document.body,"mainDiv","mainDiv:"); 
+        var av = blc.blLink(main,"av","v0.1.0","https://github.com/littleflute/cchess/edit/master/ref/pu/PianZhaoYuDuiCe/main.html","red"); 
+        var f1 = blc.blCreateFlashCChessBord(main,"f1",'H2-E2+H9-G7+H0-G2+I9-H9+I0-H0+B9-C7+C3-C4+G6-G5+H0-H6+H7-I7+H6-G6+D9-E8+B0-C2+I7-I8+B2-A2+A9-B9+A0-B0+'); 
+        var f2 = blc.blCreateFlashCChessBord(main,"f2",'H2-E2+H9-G7+H0-G2+I9-H9+I0-H0+B9-C7+C3-C4+G6-G5+H0-H6+H7-I7+H6-G6+D9-E8+B0-C2+I7-I8+B2-A2+A9-B9+A0-B0+'); 
     }
     blObj.run();
   </script>
