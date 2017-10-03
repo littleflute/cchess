@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,9 +5,44 @@
 </script>
 </head>
 <body>
- <script></script>
+  <script>
+    function blClass(){
+        this.blCreateFlashCChessBord = function(oDivBoss){
+             
+            var s = "";
+            s += '<embed ';
+            s += 'src="';
+            s += 'https://littleflute.github.io/cchess/ref/http/www.xqbase.com/pub/flashxq.swf"';
+            s += 'width="324" height="396" type="application/x-shockwave-flash"'; 
+            s += 'pluginspage="http://www.macromedia.com/go/getflashplayer"';         
+            s += 'allowScriptAccess="always" quality="high" wmode="transparent"';         
+            s += 'flashvars="MoveList=';           
+            s += 'H2-E2+H9-G7+H0-G2+I9-H9+I0-H0+B9-C7+C3-C4+G6-G5+H0-H6+H7-I7+H6-G6+D9-E8+B0-C2+I7-I8+B2-A2+A9-B9+A0-B0+"';         
+            s += '/>';
+            var r = this.blDiv(oDivBoss,"FlashCChessBord",s);      
+            return r;
+        }
+        this.blDiv = function (oBoss,id,html){
+            var r = document.getElementById(id);
+            if(!r){
+                r = document.createElement("div");
+                r.id = id; 
+            }
+            r.innerHTML = html; 
+     
+            oBoss.appendChild(r);
+           return r;
+        } 
+    }
+    var blObj = {};
+    blObj.run = function(){
+        var blc = new blClass;
+        var main = blc.blDiv(document.body,"mainDiv","mainDiv_v0.0.3"); 
+        var main = blc.blCreateFlashCChessBord(main); 
+    }
+    blObj.run();
+  </script>
 <script>
  
-
 </body>
 </html>
