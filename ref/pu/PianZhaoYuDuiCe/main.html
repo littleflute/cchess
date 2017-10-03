@@ -99,7 +99,10 @@ alert(s2);
     blObj.run = function(){
         var blc = new blClass;
         var main = blc.blDiv(document.body,"mainDiv","mainDiv:"); 
-        var av = blc.blLink(main,"av","v0.2.7","https://github.com/littleflute/cchess/edit/master/ref/pu/PianZhaoYuDuiCe/main.html","red"); 
+        var av = blc.blLink(main,"av","v0.2.8","https://github.com/littleflute/cchess/edit/master/ref/pu/PianZhaoYuDuiCe/main.html","red"); 
+        
+        var ame = blc.blLink(main,"ame","+me","https://littleflute.github.io/cchess/ref/pu/PianZhaoYuDuiCe/main.html","yellow"); 
+        
         var ap = blc.blLink(main,"ap","[..]","..","gray"); 
         var t1 = blc.blTextArea(main,"t1","t1");
         var b1 = blc.blBtn(main,"b1","run");
