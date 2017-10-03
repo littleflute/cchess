@@ -23,8 +23,17 @@
 var t0 = document.getElementById('t0');
 var s = t0.value;
 s1 = s.split('[Format "ICCS"]'); 
-var s2 = s1[1].split(' '); 
-alert(s2);
+var s2 = s1[1].split('\n'); 
+
+var i = 0;
+var r = s2[1]; 
+
+for(i=2;i<s2.length;i++)
+{
+    r += "+";
+    r += s2[i];  
+} 
+alert(r);
 
 </textarea>
   <script>
@@ -99,7 +108,7 @@ alert(s2);
     blObj.run = function(){
         var blc = new blClass;
         var main = blc.blDiv(document.body,"mainDiv","mainDiv:"); 
-        var av = blc.blLink(main,"av","v0.2.8","https://github.com/littleflute/cchess/edit/master/ref/pu/PianZhaoYuDuiCe/main.html","red"); 
+        var av = blc.blLink(main,"av","v0.2.9","https://github.com/littleflute/cchess/edit/master/ref/pu/PianZhaoYuDuiCe/main.html","red"); 
         
         var ame = blc.blLink(main,"ame","+me","https://littleflute.github.io/cchess/ref/pu/PianZhaoYuDuiCe/main.html","yellow"); 
         
