@@ -141,12 +141,35 @@ blObj.blc.blCreateFlashCChessBord(document.body,"f2",r);
                 oBoss.appendChild(d);
             }
         }
-    }
+        this.blAjx = function(worker,href)
+        {
+            var xmlhttp;
+            if (window.XMLHttpRequest)
+            {// code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp=new XMLHttpRequest();
+            }
+            else
+            {// code for IE6, IE5
+                xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange=function()
+            {
+                if (xmlhttp.readyState==4 && xmlhttp.status==200)
+                {
+                   worker._2do(xmlhttp.responseText);
+                }
+            }
+            xmlhttp.open("GET",href,true);
+            xmlhttp.send();
+        }
+
+    }//blClass end.
+    
     var blObj = {};
     blObj.run = function(){
         var blc = new blClass;
         var main = blc.blDiv(document.body,"mainDiv","mainDiv:"); 
-        var av = blc.blLink(main,"av","v0.3.6","https://github.com/littleflute/cchess/edit/master/ref/pu/PianZhaoYuDuiCe/main.html","red"); 
+        var av = blc.blLink(main,"av","v0.4.0","https://github.com/littleflute/cchess/edit/master/ref/pu/PianZhaoYuDuiCe/main.html","red"); 
         var aDev1 = blc.blLink(main,"aDev1","Dev1","https://www.w3schools.com/html/tryit.asp?filename=tryhtml_default","green"); 
         
         
@@ -168,7 +191,11 @@ blObj.blc.blCreateFlashCChessBord(document.body,"f2",r);
             t1.value = t4b2.value;
         }
         b3.onclick = function(){
-            blc.blShowObj2Div(document.body,blc);
+            var t0 = document.getElementById('t0');
+            t0._2do = function(s){
+            	t0.value = s;
+            }
+            blc.blAjx(t0,"https://littleflute.github.io/cchess/ref/pu/PianZhaoYuDuiCe/1/2.txt");
         }
         return blc;
     }
