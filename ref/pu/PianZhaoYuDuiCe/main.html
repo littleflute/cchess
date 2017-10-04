@@ -169,7 +169,7 @@ blObj.blc.blCreateFlashCChessBord(document.body,"f2",r);
     blObj.run = function(){
         var blc = new blClass;
         var main = blc.blDiv(document.body,"mainDiv","mainDiv:"); 
-        var av = blc.blLink(main,"av","v0.4.3","https://github.com/littleflute/cchess/edit/master/ref/pu/PianZhaoYuDuiCe/main.html","red"); 
+        var av = blc.blLink(main,"av","v0.4.4","https://github.com/littleflute/cchess/edit/master/ref/pu/PianZhaoYuDuiCe/main.html","red"); 
         var aDev1 = blc.blLink(main,"aDev1","Dev1","https://www.w3schools.com/html/tryit.asp?filename=tryhtml_default","green"); 
         
         var aDemo = blc.blLink(main,"aDemo","Demo","http://www.beautifullover.org/php/vschess120/demo.html","blue"); 
@@ -186,14 +186,17 @@ blObj.blc.blCreateFlashCChessBord(document.body,"f2",r);
 
         b1.onclick = function(){
             blc.blRunJs(t1.value);
-        }
-        b1.style.backgroundColor="red";
-        
+        } 
         var t0 = document.getElementById('t0');
         t0._2do = function(s){
             	t0.value = s;
             }
             
+        b1.style.display="none";
+        b2.style.display="none";
+        t0.style.display="none";
+        t1.style.display="none";
+        
         b2.onclick = function(){
             var t4b2 = document.getElementById('t4b2');
             t1.value = t4b2.value;
