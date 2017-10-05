@@ -1,11 +1,11 @@
 
 
 
+
 <!DOCTYPE html>
 <html>
 <head>
-
-</script>
+<title>勇闯禁区</title>
 </head>
 <body>
 <textarea id="t0">
@@ -171,7 +171,7 @@ blObj.blc.blCreateFlashCChessBord(document.body,"f2",r);
     blObj.run = function(){
         var blc = new blClass;
         var main = blc.blDiv(document.body,"mainDiv","mainDiv:"); 
-        var av = blc.blLink(main,"av","v0.4.9","https://github.com/littleflute/cchess/edit/master/ref/pu/PianZhaoYuDuiCe/main.html","red"); 
+        var av = blc.blLink(main,"av","v0.0.3","https://github.com/littleflute/cchess/edit/master/ref/pu/PianZhaoYuDuiCe/1/2/index.html","red"); 
         var aDev1 = blc.blLink(main,"aDev1","Dev1","https://www.w3schools.com/html/tryit.asp?filename=tryhtml_default","green"); 
         
         var aDemo = blc.blLink(main,"aDemo","Demo","http://www.beautifullover.org/php/vschess120/demo.html","blue"); 
@@ -182,9 +182,8 @@ blObj.blc.blCreateFlashCChessBord(document.body,"f2",r);
         var t1 = blc.blTextArea(main,"t1","t1");
         var b1 = blc.blBtn(main,"b1","run");
         var b2 = blc.blBtn(main,"b2","b2");
-        var b1i = blc.blBtn(main,"b1i","b1i"); 
-   //     var f1 = blc.blCreateFlashCChessBord(main,"f1",'H2-E2+H9-G7+H0-G2+I9-H9+I0-H0+B9-C7+C3-C4+G6-G5+H0-H6+H7-I7+H6-G6+D9-E8+B0-C2+I7-I8+B2-A2+A9-B9+A0-B0+');  
-        var path = "https://littleflute.github.io/cchess/ref/pu/PianZhaoYuDuiCe/1/";
+        var b1i = blc.blBtn(main,"b1i","b1i");  
+        var path = "https://littleflute.github.io/cchess/ref/pu/PianZhaoYuDuiCe/1/2/";
 
         b1.onclick = function(){
             blc.blRunJs(t1.value);
