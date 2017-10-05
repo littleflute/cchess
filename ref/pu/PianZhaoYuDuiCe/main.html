@@ -56,7 +56,8 @@ blObj.blc.blCreateFlashCChessBord(document.body,"f2",r);
             eval(s);
         }
 
-        this.blCreateFlashCChessBord = function(oDivBoss,id,ml){             
+        this.blCreateFlashCChessBord = function(oDivBoss,id,ml){    
+            var t = this.blDiv(oDivBoss,id+"title",id+":"+ml);           
             var s = "";
             s += '<embed ';
             s += 'src="';
@@ -68,8 +69,7 @@ blObj.blc.blCreateFlashCChessBord(document.body,"f2",r);
             s += ml;
             s += '"';         
             s += '/>';
-            var r = this.blDiv(oDivBoss,id,s);    
-            var t = this.blDiv(r,id+"title",id+":"+ml);     
+            var r = this.blDiv(oDivBoss,id,s);       
             return r;
         }
         this.blTextArea = function (oBoss,id,html){
@@ -106,14 +106,14 @@ blObj.blc.blCreateFlashCChessBord(document.body,"f2",r);
             var r = document.getElementById(id);
             if(!r){
                 r = document.createElement("a");
+            	oBoss.appendChild(r);
+            }
+            r.innerHTML = html; 
     	        var t = document.createTextNode(html);
     	        r.setAttribute("href", href);
     	        r.setAttribute("target", "_blank");
                 r.id = id; 
     	        r.style.backgroundColor = bkClr?bkClr:"blue";
-            }
-            r.innerHTML = html; 
-            oBoss.appendChild(r);
             return r;
          }
          this.blShowObj2Div = function (oDivBoss,obj)
@@ -171,7 +171,7 @@ blObj.blc.blCreateFlashCChessBord(document.body,"f2",r);
     blObj.run = function(){
         var blc = new blClass;
         var main = blc.blDiv(document.body,"mainDiv","mainDiv:"); 
-        var av = blc.blLink(main,"av","v0.4.7","https://github.com/littleflute/cchess/edit/master/ref/pu/PianZhaoYuDuiCe/main.html","red"); 
+        var av = blc.blLink(main,"av","v0.4.9","https://github.com/littleflute/cchess/edit/master/ref/pu/PianZhaoYuDuiCe/main.html","red"); 
         var aDev1 = blc.blLink(main,"aDev1","Dev1","https://www.w3schools.com/html/tryit.asp?filename=tryhtml_default","green"); 
         
         var aDemo = blc.blLink(main,"aDemo","Demo","http://www.beautifullover.org/php/vschess120/demo.html","blue"); 
@@ -191,7 +191,7 @@ blObj.blc.blCreateFlashCChessBord(document.body,"f2",r);
         } 
         var t0 = document.getElementById('t0');
         t0._2do = function(s){
-            	t0.value = s;
+            	t0.value = s;//alert(s);
                 b2.click();
             	b1.click();
             }
@@ -203,8 +203,10 @@ blObj.blc.blCreateFlashCChessBord(document.body,"f2",r);
                 {
                 	var b = blc.blBtn(main,"n"+n,n+1);
                     b.onclick = function(){
-                    	var href = path + this.innerHTML+".txt"; 
-                        blc.blAjx(t0,href);
+                    	var s = path + this.innerHTML+".txt"; 
+                        var file = blc.blLink(main,"aFile",s,s,"gray"); 
+                         
+                        blc.blAjx(t0,s); 
                     }
                 }
             }
@@ -212,12 +214,12 @@ blObj.blc.blCreateFlashCChessBord(document.body,"f2",r);
  	        blc.blAjx(w,path+"i.txt");   
             
         }
-            
+           //* 
         b1.style.display="none";
         b2.style.display="none";
         t0.style.display="none";
         t1.style.display="none";
-        
+        //*/
         b2.onclick = function(){
             var t4b2 = document.getElementById('t4b2');
             t1.value = t4b2.value; 
