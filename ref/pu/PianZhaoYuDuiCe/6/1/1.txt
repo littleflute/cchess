@@ -1,0 +1,8 @@
+[Game "Chinese Chess"]
+[FEN "rnbakabnr/9/1c5c1/p1p1p1p1p/9/9/P1P1P1P1P/1C5C1/9/RNBAKABNR w - - 0 1"]
+1. 炮二平五 马２进３
+2. 马二进三 车１进１
+3. 车一平二 炮８平７
+4. 兵五进一 车１平４
+5. 兵五进一 炮７平５
+6. 兵五平四 车４进５
