@@ -1,4 +1,6 @@
-### [..](..)-[v0.0.2](https://github.com/littleflute/cchess/edit/master/ref/pu/PianZhaoYuDuiCe/4/readme.md)
+### [..](..)-[v0.0.3](https://github.com/littleflute/cchess/edit/master/ref/pu/PianZhaoYuDuiCe/4/readme.md)
 ### [v:棋騙著與對策：列手炮](https://www.youtube.com/watch?v=1Fyi8laBkNM)
-### [1.弃象陷车](1)
+### [3. 单刀赴会](3)
+### [2. 棋快一着](2)
+### [1. 弃象陷车](1)
 
