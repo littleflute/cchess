@@ -1,0 +1,9 @@
+[Game "Chinese Chess"]
+[FEN "rnbakabnr/9/1c5c1/p1p1p1p1p/9/9/P1P1P1P1P/1C5C1/9/RNBAKABNR w - - 0 1"]
+[Format "ICCS"]
+1. H2-E2 B7-E7
+2. H0-G2 B9-C7
+3. I0-H0 H7-G7
+4. B0-A2 A9-B9
+5. B2-C2 H9-I7
+6. A0-A1 
