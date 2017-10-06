@@ -51,9 +51,9 @@ blObj.blc.blCreateFlashCChessBord(document.body,"f2",r);
 
 </textarea>
   <script>
-  var v_This_File = "v0.0.1";
+  var v_This_File = "v0.0.4";
   var hrefRoot = "https://littleflute.github.io/cchess/ref/pu/PianZhaoYuDuiCe/";
-  var hrefRootE = "https://littleflute.github.io/cchess/ref/pu/PianZhaoYuDuiCe/";
+  var hrefRootE = "https://github.com/littleflute/cchess/edit/master/ref/pu/PianZhaoYuDuiCe/";
   var hrefObject = "4/1/";
   
     function blClass(){ 
@@ -177,12 +177,12 @@ blObj.blc.blCreateFlashCChessBord(document.body,"f2",r);
     blObj.run = function(){
         var blc = new blClass;
         var main = blc.blDiv(document.body,"mainDiv","mainDiv:"); 
-        var av = blc.blLink(main,"av",v_This_File,hrefRoot+hrefObject+"index.html","red"); 
+        var av = blc.blLink(main,"av",v_This_File,hrefRootE+hrefObject+"index.html","red"); 
         var aDev1 = blc.blLink(main,"aDev1","Dev1","https://www.w3schools.com/html/tryit.asp?filename=tryhtml_default","green"); 
         
         var aDemo = blc.blLink(main,"aDemo","Demo","http://www.beautifullover.org/php/vschess120/demo.html","blue"); 
         
-        var ame = blc.blLink(main,"ame","+me",hrefRootE+hrefObject+"index.html","yellow"); 
+        var ame = blc.blLink(main,"ame","+me",hrefRoot+hrefObject+"index.html","yellow"); 
         
         var ap = blc.blLink(main,"ap","[..]","..","gray"); 
         var t1 = blc.blTextArea(main,"t1","t1");
@@ -207,9 +207,13 @@ blObj.blc.blCreateFlashCChessBord(document.body,"f2",r);
                 for(var n = 0; n<i.length-1;n++)
                 {
                 	var b = blc.blBtn(main,"n"+n,n+1);
+                    b.nClickNum = 0;
+                    b.nFileName = n+1;
                     b.onclick = function(){
                     	var s = path + this.innerHTML+".txt"; 
                         var file = blc.blLink(main,"aFile",s,s,"gray"); 
+                        this.nClickNum++;
+                        this.innerHTML = this.nFileName + ":" + this.nClickNum;
                          
                         blc.blAjx(t0,s); 
                     }
