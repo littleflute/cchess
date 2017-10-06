@@ -51,7 +51,7 @@ blObj.blc.blCreateFlashCChessBord(document.body,"f2",r);
 
 </textarea>
   <script>
-  var v_This_File = "v0.0.4";
+  var v_This_File = "v0.0.5";
   var hrefRoot = "https://littleflute.github.io/cchess/ref/pu/PianZhaoYuDuiCe/";
   var hrefRootE = "https://github.com/littleflute/cchess/edit/master/ref/pu/PianZhaoYuDuiCe/";
   var hrefObject = "4/1/";
@@ -210,7 +210,7 @@ blObj.blc.blCreateFlashCChessBord(document.body,"f2",r);
                     b.nClickNum = 0;
                     b.nFileName = n+1;
                     b.onclick = function(){
-                    	var s = path + this.innerHTML+".txt"; 
+                    	var s = path + this.nFileName+".txt"; 
                         var file = blc.blLink(main,"aFile",s,s,"gray"); 
                         this.nClickNum++;
                         this.innerHTML = this.nFileName + ":" + this.nClickNum;
