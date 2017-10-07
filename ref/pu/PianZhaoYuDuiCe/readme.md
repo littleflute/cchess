@@ -1,5 +1,6 @@
 
-### [..](..) - [v0.1.0](https://github.com/littleflute/cchess/edit/master/ref/pu/PianZhaoYuDuiCe/readme.md)
+### [..](..) - [v0.1.1](https://github.com/littleflute/cchess/edit/master/ref/pu/PianZhaoYuDuiCe/readme.md)
+### [象棋騙著與對策：中炮對疊炮局1](8)
 ### [象棋騙著與對策：仙人指路類](7)
 ### [象棋騙著與對策：中炮對橫車斂炮](6)
 ### [象棋騙著與對策：中炮對反宮馬](5)
