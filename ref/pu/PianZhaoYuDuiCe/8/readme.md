@@ -1,5 +1,7 @@
-### [..](..)-[v0.0.3](https://github.com/littleflute/cchess/edit/master/ref/pu/PianZhaoYuDuiCe/8/readme.md)
+### [..](..)-[v0.0.4](https://github.com/littleflute/cchess/edit/master/ref/pu/PianZhaoYuDuiCe/8/readme.md)
 ### [v:象棋騙著與對策：中炮對疊炮局1](https://www.youtube.com/watch?v=sGTkARyfbg4)
+### [v:象棋騙著與對策：中炮對疊炮局2](https://www.youtube.com/watch?v=ulk4d7l6W_k)
+### [4. 现代招式2：飞边象式](4)
 ### [3. 现代招式1：挺边卒式](3)
 ### [2. 古谱招式2](2)
 ### [1. 古谱招式1](1)
