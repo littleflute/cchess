@@ -1,5 +1,5 @@
 
-### [..](..)- [v0.1.1](https://github.com/littleflute/cchess/edit/master/ref/readme.md)  
+### [..](..)- [v0.1.2](https://github.com/littleflute/cchess/edit/master/ref/readme.md)-[me](https://littleflute.github.io/cchess/ref/)  
 <table>
   <tr>
     <td><a href="www.playok.com">www.playok.com</a></td>
