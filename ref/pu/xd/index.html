@@ -1,13 +1,11 @@
 
-
-
-
 <!DOCTYPE html>
 <html>
 <head>
 <title>LittleFlute Play Log</title>
 </head>
-<body>
+<body> 
+    
 <textarea id="t0">
 [Game "Chinese Chess"]
 [FEN "rnbakabnr/9/1c5c1/p1p1p1p1p/9/9/P1P1P1P1P/1C5C1/9/RNBAKABNR w - - 0 1"]
@@ -43,10 +41,6 @@ for(i=1;i<s2.length-1;i++)
 
 } 
 blObj.blc.blCreateFlashCChessBord(document.body,"f2",r);
-
-
-
-
 
 </textarea>
   <script>
@@ -171,7 +165,7 @@ blObj.blc.blCreateFlashCChessBord(document.body,"f2",r);
     blObj.run = function(){
         var blc = new blClass;
         var main = blc.blDiv(document.body,"mainDiv","mainDiv:"); 
-        var av = blc.blLink(main,"av","v0.0.1","https://github.com/littleflute/cchess/edit/master/ref/pu/xd/index.html","red"); 
+        var av = blc.blLink(main,"av","v0.0.2","https://github.com/littleflute/cchess/edit/master/ref/pu/xd/index.html","red"); 
         var aDev1 = blc.blLink(main,"aDev1","Dev1","https://www.w3schools.com/html/tryit.asp?filename=tryhtml_default","green"); 
         
         var aDemo = blc.blLink(main,"aDemo","Demo","http://www.beautifullover.org/php/vschess120/demo.html","blue"); 
@@ -179,6 +173,9 @@ blObj.blc.blCreateFlashCChessBord(document.body,"f2",r);
         var ame = blc.blLink(main,"ame","+me","https://littleflute.github.io/cchess/ref/pu/xd/index.html","yellow"); 
         
         var ap = blc.blLink(main,"ap","[..]","..","gray"); 
+        
+        var playok = blc.blLink(main,"playok","playok","playok","gray"); 
+        
         var t1 = blc.blTextArea(main,"t1","t1");
         var b1 = blc.blBtn(main,"b1","run");
         var b2 = blc.blBtn(main,"b2","b2");
