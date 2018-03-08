@@ -1,4 +1,4 @@
-### [V0.2.2](https://github.com/littleflute/cchess/edit/master/README.md)-[me](https://littleflute.github.io/cchess/)--
+### [V0.2.3](https://github.com/littleflute/cchess/edit/master/README.md)-[me](https://littleflute.github.io/cchess/)--
 <table>
   <tr>
     <td><a href="ref">ref</a></td>
