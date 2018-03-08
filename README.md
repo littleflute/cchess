@@ -1,4 +1,4 @@
-### [V0.2.0](https://github.com/littleflute/chess/edit/master/README.md)-[me](https://littleflute.github.io/cchess/)--
+### [V0.2.1](https://github.com/littleflute/cchess/edit/master/README.md)-[me](https://littleflute.github.io/cchess/)--
 <table>
   <tr>
     <td><a href="ref">ref</a></td>
@@ -13,3 +13,8 @@
   </tr>
 </table>
   
+
+<script src="https://www.w3schools.com/lib/w3.js"></script>
+<script src="https://littleflute.github.io/JavaScript/blclass.js" ></script>
+<script src="https://littleflute.github.io/JavaScript/blApp.js"></script>
+<script src="blAppPlx.js"></script>
