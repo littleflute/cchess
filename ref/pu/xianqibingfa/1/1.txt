@@ -1,4 +1,5 @@
 [Game "Chinese Chess"]
+[v0.0.2]
 [《象棋兵法》当头炮攻屏风马之进中兵攻击篇第一局]
 [FEN "rnbakabnr/9/1c5c1/p1p1p1p1p/9/9/P1P1P1P1P/1C5C1/9/RNBAKABNR w - - 0 1"]
 [Format "ICCS"]
