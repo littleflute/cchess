@@ -1,5 +1,5 @@
 
-### [..](..)-[v0.0.11](https://github.com/littleflute/cchess/edit/master/ref/pu/readme.md) [me]()
+## [v0.0.12](https://github.com/littleflute/cchess/edit/master/ref/pu/readme.md) [..](..) [me](https://littleflute.github.io/cchess/ref/pu/)
 ## [xianqibingfa](xianqibingfa)
 ### [佐為象棋講座](zuowei)
 ### [xd play log](xd)
