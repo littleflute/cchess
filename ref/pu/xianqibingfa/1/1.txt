@@ -1,0 +1,18 @@
+[Game "Chinese Chess"]
+[《象棋兵法》当头炮攻屏风马之进中兵攻击篇第一局]
+[FEN "rnbakabnr/9/1c5c1/p1p1p1p1p/9/9/P1P1P1P1P/1C5C1/9/RNBAKABNR w - - 0 1"]
+[Format "ICCS"]
+1. H2-E2 H9-G7
+2. H0-G2 B9-C7
+3. I0-H0 I9-H9
+4. H0-H6 G6-G5
+5. E3-E4 D9-E8
+6. B0-C2 G7-F5
+7. E4-E5 E6-E5
+8. C2-E3 F5-E3
+9. G2-E3 E5-E4
+10. E2-E4 C9-E7
+11. E3-C4 A9-D9
+12. C4-D6 H9-H8
+13. B2-D2 D9-C9
+14. A0-B0 
