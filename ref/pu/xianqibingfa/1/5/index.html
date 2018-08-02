@@ -1,0 +1,240 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>LittleFlute Play Log</title>
+</head>
+<body> 
+    
+<textarea id="t0">
+[Game "Chinese Chess"]
+[FEN "rnbakabnr/9/1c5c1/p1p1p1p1p/9/9/P1P1P1P1P/1C5C1/9/RNBAKABNR w - - 0 1"]
+[Format "ICCS"]
+1. H2-E2 H9-G7
+2. H0-G2 I9-H9
+3. I0-H0 B9-C7
+4. C3-C4 G6-G5
+5. H0-H6 H7-I7
+6. H6-G6 D9-E8
+7. B0-C2 I7-I8
+8. B2-A2 A9-B9
+9. A0-B0 
+</textarea>
+<textarea id="t4b2" style="display:none;">
+var t0 = document.getElementById('t0');
+var s = t0.value;
+s1 = s.split('[Format "ICCS"]'); 
+var s2 = s1[1].split('\n'); 
+
+var i = 0;
+var r = "";
+
+for(i=1;i<s2.length-1;i++)
+{
+    
+    var s3 = s2[i].split('.'); 
+    var s4 = s3[1].split(' ');
+    r += s4[1];  
+    r += "+";
+    r += s4[2];  
+    r += "+";
+
+} 
+blObj.blc.blCreateFlashCChessBord(document.body,"f2",r);
+
+</textarea>
+  <script>
+    function blClass(){ 
+
+        this.blRunJs = function(s){             
+            eval(s);
+        }
+
+        this.blCreateFlashCChessBord = function(oDivBoss,id,ml){    
+            var t = this.blDiv(oDivBoss,id+"title",id+":"+ml);           
+            var s = "";
+            s += '<embed ';
+            s += 'src="';
+            s += 'https://littleflute.github.io/cchess/ref/http/www.xqbase.com/pub/flashxq.swf"';
+            s += 'width="324" height="396" type="application/x-shockwave-flash"'; 
+            s += 'pluginspage="http://www.macromedia.com/go/getflashplayer"';         
+            s += 'allowScriptAccess="always" quality="high" wmode="transparent"';         
+            s += 'flashvars="MoveList=';           
+            s += ml;
+            s += '"';         
+            s += '/>';
+            var r = this.blDiv(oDivBoss,id,s);       
+            return r;
+        }
+        this.blTextArea = function (oBoss,id,html){
+            var r = document.getElementById(id);
+            if(!r){
+                r = document.createElement("textarea");
+                r.id = id; oBoss.appendChild(r);
+            }
+
+            r.innerHTML = html;             
+           return r;
+        }
+        this.blBtn = function (oBoss,id,html){
+            var r = document.getElementById(id);
+            if(!r){
+                r = document.createElement("button");
+                r.id = id; oBoss.appendChild(r);
+            }
+            r.innerHTML = html;             
+           return r;
+        }
+        this.blDiv = function (oBoss,id,html){
+            var r = document.getElementById(id);
+            if(!r){
+                r = document.createElement("div");
+                r.id = id; 
+            }
+            r.innerHTML = html; 
+     
+            oBoss.appendChild(r);
+           return r;
+        }
+        this.blLink = function (oBoss,id,html,href,bkClr){
+            var r = document.getElementById(id);
+            if(!r){
+                r = document.createElement("a");
+            	oBoss.appendChild(r);
+            }
+            r.innerHTML = html; 
+    	        var t = document.createTextNode(html);
+    	        r.setAttribute("href", href);
+    	        r.setAttribute("target", "_blank");
+                r.id = id; 
+    	        r.style.backgroundColor = bkClr?bkClr:"blue";
+            return r;
+         }
+         this.blShowObj2Div = function (oDivBoss,obj)
+         {
+            var oBoss = oDivBoss;
+            if(!oBoss) {
+               oBoss = document.createElement("div");
+               oBoss.id = "divBlShowObj";
+               oBoss.style.border = "green 1px solid";
+               document.body.appendChild(oBoss);
+            } 
+            if(!oBoss){
+               alert("boss error!");return;
+            }
+          //  oBoss.innerHTML = "";
+            for(i in obj)
+            {
+                var b = document.createElement("button");
+                b.id = b.innerHTML = i;
+                if(i[0]=="b"&&i[1]=="l") b.style.backgroundColor = "yellow";
+                oBoss.appendChild(b);
+                var d = document.createElement("div");
+                d.innerHTML = obj[i];
+                d.style.border = "blue 1px solid";
+                d.style.backgroundColor = "green";
+                d.style.color = "yellow";
+                oBoss.appendChild(d);
+            }
+        }
+        this.blAjx = function(worker,href)
+        {
+            var xmlhttp;
+            if (window.XMLHttpRequest)
+            {// code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp=new XMLHttpRequest();
+            }
+            else
+            {// code for IE6, IE5
+                xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange=function()
+            {
+                if (xmlhttp.readyState==4 && xmlhttp.status==200)
+                {
+                   worker._2do(xmlhttp.responseText);
+                }
+            }
+            xmlhttp.open("GET",href,true);
+            xmlhttp.send();
+        }
+
+    }//blClass end.
+    
+    var blObj = {};
+    blObj.run = function(){
+        var blc = new blClass;
+        var main = blc.blDiv(document.body,"mainDiv","mainDiv:"); 
+        var av = blc.blLink(main,"av","v0.0.11","https://github.com/littleflute/cchess/edit/master/ref/pu/xianqibingfa/1/5/index.html","red"); 
+        var aDev1 = blc.blLink(main,"aDev1","Dev1","https://www.w3schools.com/html/tryit.asp?filename=tryhtml_default","green"); 
+        
+        var aDemo = blc.blLink(main,"aDemo","Demo","http://www.beautifullover.org/php/vschess120/demo.html","blue"); 
+        
+        var ame = blc.blLink(main,"ame","+me","https://littleflute.github.io/cchess/ref/pu/xianqibingfa/1/5/index.html","yellow"); 
+        
+        var ap = blc.blLink(main,"ap","[..]","..","gray"); 
+        
+        var playok = blc.blLink(main,"playok","playok","playok","gray"); 
+        
+        var t1 = blc.blTextArea(main,"t1","t1");
+        var b1 = blc.blBtn(main,"b1","run");
+        var b2 = blc.blBtn(main,"b2","b2");
+        var b1i = blc.blBtn(main,"b1i","b1i");  
+        var path = "https://littleflute.github.io/cchess/ref/pu/xianqibingfa/1/5/";
+
+        b1.onclick = function(){
+            blc.blRunJs(t1.value);
+        } 
+        var t0 = document.getElementById('t0');
+        t0._2do = function(s){
+            	t0.value = s;//alert(s);
+                b2.click();
+            	b1.click();
+            }
+        b1i.onclick = function(){
+        	var w = {};
+            w._2do = function(s){
+            	var i = s.split(";");
+                for(var n = 0; n<i.length-1;n++)
+                {
+                	var b = blc.blBtn(main,"n"+n,n+1);
+                    b.onclick = function(){
+                    	var s = path + this.innerHTML+".txt"; 
+                        var file = blc.blLink(main,"aFile",s,s,"gray"); 
+                         
+                        blc.blAjx(t0,s); 
+                    }
+                }
+            }
+            
+ 	        blc.blAjx(w,path+"i.txt");   
+            
+        }
+           //* 
+        b1.style.display="none";
+        b2.style.display="none";
+        t0.style.display="none";
+        t1.style.display="none";
+        //*/
+        b2.onclick = function(){
+            var t4b2 = document.getElementById('t4b2');
+            t1.value = t4b2.value; 
+            
+        } 
+        return blc;
+    }
+
+
+    blObj.blc = blObj.run();
+    b1i.click();
+       
+  </script>
+<script>
+ 
+</body>
+</html>
