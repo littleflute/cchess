@@ -19,7 +19,7 @@ label {  font-size: 14px;}
     --></style>  </head>
 <body>
     <div style="text-align:center;font-size:28px;font-family:黑体">漂泊者乐园象棋《谁能解》红先走
-      <a href="https://github.com/littleflute/cchess/edit/master/play/snj.html">V0.0. 121 </a>
+      <a href="https://github.com/littleflute/cchess/edit/master/play/snj.html">V0.0. 122 </a>
     </div>
     <div id="id_div_4_fen"></div>
     <div style="text-align:center;white-space:nowrap">
@@ -145,7 +145,7 @@ var QueryString = function () {
 function bl$(id){	return document.getElementById(id); }
 if(QueryString.f) board.fen = QueryString.f;
 var d = bl$("id_div_4_fen");
-d.innerHTML = board.fen;
+d.innerHTML = QueryString.id;//board.fen;
 
 restart_click();
     --></script>
