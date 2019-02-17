@@ -1,5 +1,3 @@
-﻿
-
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -10,64 +8,27 @@
     <script type="text/javascript" src="board.js"></script>
     <script type="text/javascript" src="cchess.js"></script>
     <style type="text/css"><!--
-body {
-  background: url(../background.gif);
-}
+body {  background: url(../background.gif);}
+span.td {  display: inline-block;}
+div.label {  font-size: 14px;  padding:2px;}
+select {  font-size: 14px;  width: 108px;  padding:2px;}
+option {  font-size: 14px;}
 
-span.td {
-  display: inline-block;
-}
-
-div.label {
-  font-size: 14px;
-  padding:2px;
-}
-
-select {
-  font-size: 14px;
-  width: 108px;
-  padding:2px;
-}
-
-option {
-  font-size: 14px;
-}
-
-input.button {
-  font-size: 14px;
-  width: 108px;
-}
-
-label {
-  font-size: 14px;
-}
-
-    --></style>
-  </head>
-  <body>
+input.button {  font-size: 14px;  width: 108px;}
+label {  font-size: 14px;}
+    --></style>  </head>
+<body>
     <div style="text-align:center;font-size:28px;font-family:黑体">漂泊者乐园象棋《谁能解》红先走
-      <a href="https://github.com/littleflute/cchess/edit/master/play/snj.html">V0.0. 53 </a>
+      <a href="https://github.com/littleflute/cchess/edit/master/play/snj.html">V0.0. 114 </a>
     </div>
     <div id="id_div_4_fen"></div>
     <div style="text-align:center;white-space:nowrap">
       <span class="td" style="margin-right:10px">
         <div id="container"></div>
       </span><span class="td" style="vertical-align:top;width:120px;"><div style="text-align:left">
-        <div class="label">红先走</div>
-        <div><select id="selMoveMode" size="3" style="display:none;">
-          <option selected value="0">我先走</option>
-          <option value="1">电脑先走</option>
-          <option value="2">不用电脑</option>
-        </select></div>
-        <div class="label" style="display:none;">先走让子</div>
-        <div><select id="selHandicap" style="padding:0px;display:none;">
-          <option selected value="0">不让子</option>
-          <option value="1">让左马</option>
-          <option value="2">让双马</option>
-          <option value="3">让九子</option> 
-          <option value="4">七星聚会</option> 
-          
-        </select></div>
+ 
+   
+ 
         <div style="padding-top:2px"><input type="button" class="button" value="重新开始" onclick="restart_click()"></div>
         <div style="padding-top:2px"><input type="button" class="button" value="悔棋" onclick="retract_click()"></div>
         <div style="height:12px"></div>
@@ -85,15 +46,7 @@ label {
     </div>
     <script type="text/javascript"><!--
 "use strict";
-
-var STARTUP_FEN = [
-  "3ak4/4aP3/9/9/p1b6/9/9/7C1/4K4/9 w ", // snj 
-  "rnbakabnr/9/1c5c1/p1p1p1p1p/9/9/P1P1P1P1P/1C5C1/9/RNBAKAB1R w",
-  "rnbakabnr/9/1c5c1/p1p1p1p1p/9/9/P1P1P1P1P/1C5C1/9/R1BAKAB1R w",
-  "rnbakabnr/9/1c5c1/p1p1p1p1p/9/9/9/1C5C1/9/RN2K2NR w", 
-  "3k5/4P4/3c1C3/9/9/1N7/9/9/4p4/3K1p3 w", //snj138
-];
-
+ 
 function createOption(text, value, ie8) {
   var opt = document.createElement("option");
   opt.selected = true;
@@ -110,6 +63,7 @@ var board = new Board(container, "images/", "sounds/");
 board.setSearch(16);
 board.millis = 1000;
 board.computer = 1;
+board.fen = "3ak4/4aP3/9/9/p1b6/9/9/7C1/4K4/9 w";
 board.onAddMove = function() {
   var counter = (board.pos.mvList.length >> 1);
   var space = (counter > 99 ? "    " : "   ");
@@ -131,8 +85,8 @@ function level_change() {
 function restart_click() {
   selMoveList.options.length = 1;
   selMoveList.selectedIndex = 0;
-  board.computer = 1 - selMoveMode.selectedIndex;
-  board.restart(STARTUP_FEN[selHandicap.selectedIndex]);
+  board.computer = 1;
+  board.restart(board.fen);
 }
 
 function retract_click() {
@@ -189,9 +143,9 @@ var QueryString = function () {
   return query_string;
 }();
 function bl$(id){	return document.getElementById(id); }
-var fen = QueryString.f;
+if(QueryString.f) board.fen = QueryString.f;
 var d = bl$("id_div_4_fen");
-d.innerHTML = fen;
+d.innerHTML = board.fen;
 
 restart_click();
     --></script>
