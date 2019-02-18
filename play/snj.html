@@ -19,8 +19,8 @@ label {  font-size: 14px;}
     --></style>  </head>
 <body>
     <div  style="text-align:center;font-size:28px;font-family:黑体">
-      <button id="id_btn_4_blChess">漂泊者乐园象棋</button> <button id="id_btn_4_snj">谁能解</button> <div id="id_div_4_fen"></div>红先走
-      <a target="_blank" href="https://github.com/littleflute/cchess/edit/master/play/snj.html">V0.0. 141 </a>        
+      <button id="id_btn_4_blChess">漂泊者乐园象棋</button> <button id="id_btn_4_snj">【谁能解】总目录</button> <div id="id_div_4_fen"></div>红先走
+      <a target="_blank" href="https://github.com/littleflute/cchess/edit/master/play/snj.html">V0.0. 142 </a>        
       <a href="..">..</a>
       <a target="_blank" href="https://littleflute.github.io/cchess/ref/vschess_1.2.0/demo.html">demo </a>
       <br><button id="id_btn_4_blApp">++++++++++++++++++++++blApp++++++++++++++++++</button> 
@@ -163,7 +163,7 @@ restart_click();
 var btnSnj= bl$("id_btn_4_snj");
 btnSnj. onclick = function(){
 	if(!btnSnj. d){ var p = this. parentElement ; 
-		btnSnj.d = blo0.blMDiv( p, " btnSnj.onclick ", "【Dir】- 再点按钮可关闭本窗口",300,100,500,400,blColor[1]);
+		btnSnj.d = blo0.blMDiv( p, " btnSnj.onclick ", "【Dir】- 再点[【谁能解】总目录]按钮可关闭本窗口",300,100,500,400,blColor[1]);
 		btnSnj.d.style.zIndex = 1000;
 		btnSnj.d.v = blo0.blDiv( btnSnj.d , "id_div_4_snj_i115" , "i115" , blGrey[0]);   
   		function _LoadI (o) { 		eval(o.body);	    }
