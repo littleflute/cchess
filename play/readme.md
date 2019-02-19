@@ -1,6 +1,7 @@
 
-### [v0.1.15](https://github.com/littleflute/cchess/edit/master/play/readme.md) [..](..)
-  ## [【qn01】](qn01.html) 
+### [v0.1.21](https://github.com/littleflute/cchess/edit/master/play/readme.md) [..](..)
+## [ii.html](ii.html)
+  ##  [【qn01】](qn01.html) 
 ##  [【snj.html?id=241】](snj.html?f=3rk4/5C3/5R3/9/9/9/9/9/5K2c/3p5%20w&id=241) [【snj300】](snj300.html) [【snj299】](snj299.html) [【snj275】](snj275.html)  [【snj267】](snj267.html)  [【snj138】](snj138.html)
 ### [https://www.playok.com/zh/xiangqi/](https://www.playok.com/zh/xiangqi/)
 ### [index3.html](index3.html)
