@@ -1,0 +1,155 @@
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>微信人对人下象棋程序</title>
+    <script type="text/javascript" src="book.js"></script>
+    <script type="text/javascript" src="position.js"></script>
+    <script type="text/javascript" src="search.js"></script>
+    <script type="text/javascript" src="board.js"></script>
+    <script type="text/javascript" src="cchess.js"></script>	  
+	  
+<script src="https://littleflute.github.io/JavaScript/w3.js"></script>
+<script src="https://littleflute.github.io/JavaScript/blclass.js"></script>
+<script src="https://littleflute.github.io/JavaScript/blApp.js"></script>
+	  
+    <style type="text/css"><!--
+body {  background: url(../background.gif);}
+span.td {  display: inline-block;}
+div.label {  font-size: 14px;  padding:2px;}
+select {  font-size: 14px;  width: 108px;  padding:2px;}
+option {  font-size: 14px;}
+
+input.button {  font-size: 14px;  width: 108px;}
+label {  font-size: 14px;}
+    --></style>  </head>
+<body>
+    <div  style="text-align:center;font-size:28px;font-family:黑体">
+      <button id="id_btn_4_blChess">漂泊者乐园象棋</button> <button id="id_btn_4_snj">【谁能解】总目录</button> <div id="id_div_4_fen"></div>红先走
+      <a target="_blank" href="https://github.com/littleflute/cchess/edit/master/play/snj.html">V0.0. 151 </a>        
+      <a href="..">..</a>
+      <a target="_blank" href="https://littleflute.github.io/cchess/ref/vschess_1.2.0/demo.html">demo </a>
+      <br><button id="id_btn_4_blApp">++++++++++++++++++++++blApp++++++++++++++++++</button> 
+    </div>
+   
+    <div style="text-align:center;white-space:nowrap">
+      <span class="td" style="margin-right:10px">
+        <div id="container"></div>
+      </span><span class="td" style="vertical-align:top;width:120px;"><div style="text-align:left">
+ 
+   
+ 
+        <div style="padding-top:2px"><input type="button" class="button" value="重新开始" onclick="restart_click()"></div>
+        <div style="padding-top:2px"><input type="button" class="button" value="悔棋" onclick="retract_click()"></div>
+        <div style="height:12px"></div>
+       
+
+        <div style="height:12px"></div>
+        <div><input type="checkbox" class="checkbox" id="chkAnimated" checked onclick="board.animated = checked"><label for="chkAnimated">动画</label></input></div>
+        <div><input type="checkbox" class="checkbox" checked onclick="board.setSound(checked)"><label for="chkSound">音效</label></input></div>
+        <div style="height:60px"></div>
+        <div class="label">步骤</div>
+        <div><select id="selMoveList" size="10" style="font-family:宋体" onchange="moveList_change()">
+          <option selected value="0">=== 开始 ===</option>
+        </select></div>
+      </div></span>
+    </div>
+    <script type="text/javascript"><!--
+"use strict";
+ 
+function createOption(text, value, ie8) {
+  var opt = document.createElement("option");
+  opt.selected = true;
+  opt.value = value;
+  if (ie8) {
+    opt.text = text;
+  } else {
+    opt.innerHTML = text.replace(/ /g, "&nbsp;");
+  }
+  return opt;
+}
+
+var board = new Board(container, "images/", "sounds/");
+board.setSearch(16);
+board.millis = 1000;
+board.computer = 1;
+board.fen = "3ak4/4aP3/9/9/p1b6/9/9/7C1/4K4/9 w";
+board.onAddMove = function() {
+  var counter = (board.pos.mvList.length >> 1);
+  var space = (counter > 99 ? "    " : "   ");
+  counter = (counter > 9 ? "" : " ") + counter + ".";
+  var text = (board.pos.sdPlayer == 0 ? space : counter) + move2Iccs(board.mvLast);
+  var value = "" + board.mvLast;
+  try {
+    selMoveList.add(createOption(text, value, false));
+  } catch (e) {
+    selMoveList.add(createOption(text, value, true));
+  }
+  selMoveList.scrollTop = selMoveList.scrollHeight;
+};
+
+function level_change() {
+  board.millis = Math.pow(10, selLevel.selectedIndex + 1);
+}
+
+function restart_click() {
+  selMoveList.options.length = 1;
+  selMoveList.selectedIndex = 0;
+  board.computer = 1;
+  board.restart(board.fen);
+}
+
+function retract_click() {
+  for (var i = board.pos.mvList.length; i < selMoveList.options.length; i ++) {
+    board.pos.makeMove(parseInt(selMoveList.options[i].value));
+  }
+  board.retract();
+  selMoveList.options.length = board.pos.mvList.length;
+  selMoveList.selectedIndex = selMoveList.options.length - 1;
+}
+
+function moveList_change() {
+  if (board.result == RESULT_UNKNOWN) {
+    selMoveList.selectedIndex = selMoveList.options.length - 1;
+    return;
+  }
+  var from = board.pos.mvList.length;
+  var to = selMoveList.selectedIndex;
+  if (from == to + 1) {
+    return;
+  }
+  if (from > to + 1) {
+    for (var i = to + 1; i < from; i ++) {
+      board.pos.undoMakeMove();
+    }
+  } else {
+    for (var i = from; i <= to; i ++) {
+      board.pos.makeMove(parseInt(selMoveList.options[i].value));
+    }
+  }
+  board.flushBoard();
+} 
+function bl$(id){	return document.getElementById(id); }
+if(QueryString.f) board.fen = QueryString.f;
+var d = bl$("id_div_4_fen");
+d.innerHTML = QueryString.id;//board.fen;
+
+restart_click();
+    --></script>
+
+<script>
+var btnSnj= bl$("id_btn_4_snj");
+btnSnj. onclick = function(){
+	if(!btnSnj. d){ var p = this. parentElement ; 
+		btnSnj.d = blo0.blMDiv( p, " btnSnj.onclick ", "【Dir】- 再点[【谁能解】总目录]按钮可关闭本窗口",300,100,500,400,blColor[1]);
+		btnSnj.d.style.zIndex = 1000;
+		btnSnj.d.v = blo0.blDiv( btnSnj.d , "id_div_4_snj_i115" , "i115" , blGrey[0]);   
+  		function _LoadI (o) { 		eval(o.body);	    }
+		var url = "https://api.github.com/repos/littleflute/cchess/issues/115";
+		w3.getHttpObject(url, _LoadI );
+	}
+	_on_off_div( this , btnSnj. d);
+}
+</script>
+  </body>
+</html>
