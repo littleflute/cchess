@@ -9,8 +9,7 @@
     <script type="text/javascript" src="cchess.js"></script>	  
 	  
 <script src="https://littleflute.github.io/JavaScript/w3.js"></script>
-<script src="https://littleflute.github.io/JavaScript/blclass.js"></script>
-<script src="https://littleflute.github.io/JavaScript/blApp.js"></script>
+<script src="https://littleflute.github.io/JavaScript/blclass.js"></script> 
 	  
     <style type="text/css"><!--
 body {  background: url(../background.gif);}
@@ -23,14 +22,8 @@ input.button {  font-size: 14px;  width: 108px;}
 label {  font-size: 14px;}
     --></style>  </head>
 <body>
-    <div  style="text-align:center;font-size:28px;font-family:黑体">
-      <button id="id_btn_4_blChess">漂泊者乐园象棋</button> <button id="id_btn_4_snj">【谁能解】总目录</button> <div id="id_div_4_fen"></div>红先走
-      <a target="_blank" href="https://github.com/littleflute/cchess/edit/master/play/snj.html">V0.0. 151 </a>        
-      <a href="..">..</a>
-      <a target="_blank" href="https://littleflute.github.io/cchess/ref/vschess_1.2.0/demo.html">demo </a>
-      <br><button id="id_btn_4_blApp">++++++++++++++++++++++blApp++++++++++++++++++</button> 
-    </div>
-   
+    <div  style="text-align:center;font-size:28px;font-family:黑体">      
+      <div id="id_div_4_fen"></div>红先走(v0.11)</div>   
     <div style="text-align:center;white-space:nowrap">
       <span class="td" style="margin-right:10px">
         <div id="container"></div>
@@ -135,20 +128,6 @@ d.innerHTML = QueryString.id;//board.fen;
 
 restart_click();
     --></script>
-
-<script>
-var btnSnj= bl$("id_btn_4_snj");
-btnSnj. onclick = function(){
-	if(!btnSnj. d){ var p = this. parentElement ; 
-		btnSnj.d = blo0.blMDiv( p, " btnSnj.onclick ", "【Dir】- 再点[【谁能解】总目录]按钮可关闭本窗口",300,100,500,400,blColor[1]);
-		btnSnj.d.style.zIndex = 1000;
-		btnSnj.d.v = blo0.blDiv( btnSnj.d , "id_div_4_snj_i115" , "i115" , blGrey[0]);   
-  		function _LoadI (o) { 		eval(o.body);	    }
-		var url = "https://api.github.com/repos/littleflute/cchess/issues/115";
-		w3.getHttpObject(url, _LoadI );
-	}
-	_on_off_div( this , btnSnj. d);
-}
-</script>
+ 
   </body>
 </html>
