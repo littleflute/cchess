@@ -1,4 +1,4 @@
-var tag = "[plxChessBoard.js_v0.121] ";
+var tag = "[plxChessBoard.js_v0.122] ";
 var nTest = 0;
 
 function createFrame(time) {
@@ -87,6 +87,13 @@ function CPlxCChessBoard(){
 	Car_b1.type = "black";
 	_drawPiece(_ctx,_chunk, _radius, Car_b1);
 	_drawChessText(_ctx,_chunk,Car_b1);
+	
+	Horse_b1.color = "green";
+	Horse_b1.bgcolor = "blue";
+	Horse_b1.bgColor_b = "green";
+	Horse_b1.type = "black";
+	_drawPiece(_ctx,_chunk, _radius, Horse_b1);
+	_drawChessText(_ctx,_chunk,Horse_b1);
 }
 
     var _dbg = function(time){
