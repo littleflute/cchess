@@ -1,4 +1,4 @@
-var tag = "[plxChessBoard.js_v0.114] ";
+var tag = "[plxChessBoard.js_v0.121] ";
 var nTest = 0;
 
 function createFrame(time) {
@@ -114,16 +114,16 @@ function CPlxCChessBoard(){
     this.makeFrame = function (time){ 
         _dbg(time);
 
-        _init(_ctx,obj);
-        _init_chess(obj);
+        _init(_ctx,xdo);
+        _init_chess(xdo);
     }
 }
 
 var o = new CPlxCChessBoard();
 
-var obj = {};
+var xdo = {};
 // 棋盘初始化
-obj.init_back = function (_this) {
+xdo.init_back = function (_this) {
 	_this.drawRowLine();
 	_this.drawColLine();
 	_this.ctx.clearRect(_this.chunk + 1, _this.chunk * 5 + 1, _this.chunk * 8 - 2, _this.chunk - 2);
@@ -133,19 +133,19 @@ obj.init_back = function (_this) {
 }
 
 // 画横线
-obj.drawRowLine = function () {
+xdo.drawRowLine = function () {
 	for (var i = 1; i <= 10; i++) {
 		this.drawLine(1, i, 9, i);
 	}
 }
 // 画竖线
-obj.drawColLine = function () {
+xdo.drawColLine = function () {
 	for (var i = 1; i <= 9; i++) {
 		this.drawLine(i, 1, i, 10);
 	}
 }
 // 画直线
-obj.drawLine = function (x0, y0, x1, y1, lw) {
+xdo.drawLine = function (x0, y0, x1, y1, lw) {
 	var x0 = x0 * this.chunk;
 	var y0 = y0 * this.chunk;
 	var x1 = x1 * this.chunk;
@@ -159,7 +159,7 @@ obj.drawLine = function (x0, y0, x1, y1, lw) {
 	this.ctx.closePath();
 }
 // 画#
-obj.drawsharpS = function () {
+xdo.drawsharpS = function () {
 	this.round(2, 3);
 	this.round(8, 3);
 	this.round(1, 4);
@@ -176,7 +176,7 @@ obj.drawsharpS = function () {
 	this.round(9, 7);
 }
 // 画单个#
-obj.round = function (x0, y0) {
+xdo.round = function (x0, y0) {
 	var x0 = x0 * this.chunk;
 	var y0 = y0 * this.chunk;
 	this.ctx.beginPath();
@@ -206,14 +206,14 @@ obj.round = function (x0, y0) {
 	this.ctx.closePath();
 }
 // 画X
-obj.drawX = function () {
+xdo.drawX = function () {
 	this.drawLine(4, 1, 6, 3, 0.5);
 	this.drawLine(4, 3, 6, 1, 0.5);
 	this.drawLine(4, 8, 6, 10, 0.5);
 	this.drawLine(4, 10, 6, 8, 0.5);
 }
 // 画楚河/漢界
-obj.drawText = function () {
+xdo.drawText = function () {
 	this.ctx.font = "30px Courier New";
 	this.ctx.fillStyle = "#000";
 	this.ctx.fillText("楚 河", this.chunk * 2, this.chunk * 5 + this.chunk / 2 + 10);
