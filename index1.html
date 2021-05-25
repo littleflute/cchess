@@ -66,7 +66,7 @@
 <body>
 
 <div class="navbar">
-  <a target = "_blank" href="https://github.com/littleflute/cchess/edit/master/index.html">v0.0.14</a>
+  <a target = "_blank" href="https://github.com/littleflute/cchess/edit/master/index.html">v0.0.22</a>
   <a href="play">play</a>
   <a href="ref">ref</a>
   <a href="ZuoWei/FeiXiang">ZuoWei</a>
@@ -85,6 +85,27 @@
 
 <h3>Dropdown Menu inside a Navigation Bar</h3>
 <p>Hover over the "Dropdown" link to see the dropdown menu.</p>
+
+<canvas id="myCanvas" width="2048" height="1536"></canvas>
+<script src="./plxChessBoard.js"></script>
+<script type="text/javascript">
+
+  var time = 0;
+  var fun = function () {
+    time++;
+    animateFrame(time);
+  }
+  setInterval(fun, 100);
+
+  function CPlxEvent(c){
+    c.onmousedown  = function(e){
+        alert(e);
+    }
+}
+
+CPlxEvent(document.getElementById("myCanvas"));
+</script>
+
 
 </body>
 </html>
