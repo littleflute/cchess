@@ -1,4 +1,4 @@
-### [V0.2.4](https://github.com/littleflute/cchess/edit/master/README.md)-[me](https://littleflute.github.io/cchess/)--
+### [V0.2.5](https://github.com/littleflute/cchess/edit/master/README.md)-[me](https://littleflute.github.io/cchess/)--
 <table>
   <tr>
     <td><a href="ref">ref</a></td>
@@ -8,7 +8,7 @@
   <tr>
     <td><a href="https://littleflute.github.io/blog">blog</a></td>
     <td><a href="https://littleflute.github.io/cchess0">cchess0</a></td>
-    <td>td3</td>
+    <td><a href="index1.html">index1.html</a></td>
     <td>td4</td>
   </tr>
 </table>
