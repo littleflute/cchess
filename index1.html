@@ -66,7 +66,7 @@
 <body>
 
 <div class="navbar">
-  <a target = "_blank" href="https://github.com/littleflute/cchess/edit/master/index.html">v0.0.32</a>
+  <a target = "_blank" href="https://github.com/littleflute/cchess/edit/master/index.html">v0.0.11</a>
   <a href="play">play</a>
   <a href="ref">ref</a>
   <a href="ZuoWei/FeiXiang">ZuoWei</a>
@@ -83,8 +83,7 @@
   </div> 
 </div>
 
-<h3>Dropdown Menu inside a Navigation Bar</h3>
-<p id="id_4_page_dbg"> dbg </p>
+<h3>Dropdown Menu inside a Navigation Bar</h3> 
 
 <canvas id="myCanvas" width="2048" height="1536"></canvas>
 <script src="./plxChessBoard.js"></script>
@@ -94,27 +93,59 @@
   var fun = function () {
     time++;
     createFrame(time);
+    ge.draw();
   }
   setInterval(fun, 100);
 
   function CPlxEvent(c){
-    var _d = document.getElementById("id_4_page_dbg");
-    c.onmousedown  = function(e){
-        
-        e = e || window.event;
-        	// get the mouse cursor position at startup:
-        var _x = e.clientX;
-        var _y = e.clientY;
-        var s = "[";
-        s += _x;
-        s += ",";
-        s += _y;
-        s += "]";
-        _d.innerHTML = s;
+    var _ctx = c.getContext("2d");  
+    var _s2draw = "s2draw";
+    var x = -1, y = -1;
+    var b = false;
+ 
+    c.onmousedown  = function(e){        
+        e = e || window.event;        	
+        b = true;
+        x = e.clientX;
+        y = e.clientY; 
+    }
+    
+    c.onmousemove  = function(e){        
+        e = e || window.event;        	
+        if(b){
+            x = e.clientX;
+            y = e.clientY; 
+        }    
+    }
+
+    c.onmouseup  = function(e){        
+        e = e || window.event;        	
+        b = false; 
+        x = -1;
+        y = -1;
+    }
+
+    this.draw = function(){
+      var oldFont = _ctx.font;
+      var old_fillText = _ctx.fillText;
+      var old_fillStyle = _ctx.fillStyle;
+	    _ctx.fillStyle = "red";
+         
+      
+              
+       _ctx.font = 22 + "px Arial";
+	    _ctx.fillStyle = "blue";
+      _ctx.fillText(_s2draw, 550,55);
+      _ctx.fillText("["+x+","+y+"]", 550,155);
+
+      _ctx.font = oldFont;
+      _ctx.fillText = old_fillText;
+	    _ctx.fillStyle = old_fillStyle;
     }
 }
 
- CPlxEvent(document.getElementById("myCanvas"));
+ var ge = new CPlxEvent(document.getElementById("myCanvas"));
+
 </script>
 
 
