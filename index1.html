@@ -103,20 +103,20 @@
     var x = -1, y = -1;
     var b = false;
  
-    window.onmousedown  = function(e){       
+    c.onmousedown  = function(e){       
         b = true;
         x = e.clientX;
         y = e.clientY; 
     }
     
-    window.onmousemove  = function(e){               	
+    c.onmousemove  = function(e){               	
         if(b){
             x = e.clientX;
             y = e.clientY; 
         }    
     }
 
-    window.onmouseup  = function(e){         
+    c.onmouseup  = function(e){         
         b = false; 
         x = -1;
         y = -1;
