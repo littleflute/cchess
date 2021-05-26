@@ -1,4 +1,4 @@
-var tag = "[plxChessBoard.js_v0.122] ";
+var tag = "[plxChessBoard.js_v0.132] ";
 var nTest = 0;
 
 function createFrame(time) {
@@ -16,15 +16,76 @@ function CPlxCChessBoard(){
 	var canvas = document.getElementById("myCanvas");
     var _ctx = canvas.getContext("2d"); 
 
+	// 画横线
+	var drawRowLine = function (_this) {
+		for (var i = 1; i <= 10; i++) {
+			_this.drawLine(1, i, 9, i);
+		}
+	}
+	// 画竖线
+	var drawColLine = function (_this) {
+		for (var i = 1; i <= 9; i++) {
+			_this.drawLine(i, 1, i, 10);
+		}
+	}
+	// 画#
+	var drawsharpS = function (_this) {
+		_this.round(2, 3);
+		_this.round(8, 3);
+		_this.round(1, 4);
+		_this.round(3, 4);
+		_this.round(5, 4);
+		_this.round(7, 4);
+		_this.round(9, 4);
+		_this.round(2, 8);
+		_this.round(8, 8);
+		_this.round(1, 7);
+		_this.round(3, 7);
+		_this.round(5, 7);
+		_this.round(7, 7);
+		_this.round(9, 7);
+	}
+	// 画X
+	var drawX = function (_this) {
+		_this.drawLine(4, 1, 6, 3, 0.5);
+		_this.drawLine(4, 3, 6, 1, 0.5);
+		_this.drawLine(4, 8, 6, 10, 0.5);
+		_this.drawLine(4, 10, 6, 8, 0.5);
+	}
+	// 画楚河/漢界
+	var drawText = function () {
+		_ctx.font = "30px Courier New";
+		_ctx.fillStyle = "#000";
+		_ctx.fillText("楚 河", _chunk * 2, _chunk * 5 + _chunk / 2 + 10);
+		_ctx.fillText("漢 界", _chunk * 6, _chunk * 5 + _chunk / 2 + 10);
+		_ctx.font = "12px Courier New";
+		var text_arr = ["九", "八", "七", "六", "五", "四", "三", "二", "一"];
+		for (var i = 0; i < 9; i++) {
+			_ctx.fillText((i + 1).toString(), _chunk * (i + 1) - 5, 20);
+			_ctx.fillText(text_arr[i], _chunk * (i + 1) - 5, _chunk * 10 + 30 + 10);
+		}
+	}
+
+	// 棋盘初始化
+    var drawBoard = function (_this) {
+		drawRowLine(_this);
+		drawColLine(_this);
+		_ctx.clearRect(_chunk + 1, _chunk * 5 + 1, _chunk * 8 - 2, _chunk - 2);
+		drawsharpS(_this);
+		drawX(_this);
+		drawText();
+	}
+
+
     // 初始化
-    _init = function (ctx,_this) {
+    var _init = function (ctx,_this) {
         _this.ctx = ctx;//
         _this.radius = 23;
         _this.chunk = 50;
         _this.CandidateCircleR = 5;
         _this.steps = [];      // 记录步骤
         _this.currActive = "red";  // 先下
-        _this.init_back(_this);
+        
     }
     // 画棋子形状
     var _drawPiece = function (ctx,chunk, radius,e) {
@@ -122,6 +183,7 @@ function CPlxCChessBoard(){
         _dbg(time);
 
         _init(_ctx,xdo);
+		drawBoard(xdo);
         _init_chess(xdo);
     }
 }
@@ -129,28 +191,9 @@ function CPlxCChessBoard(){
 var o = new CPlxCChessBoard();
 
 var xdo = {};
-// 棋盘初始化
-xdo.init_back = function (_this) {
-	_this.drawRowLine();
-	_this.drawColLine();
-	_this.ctx.clearRect(_this.chunk + 1, _this.chunk * 5 + 1, _this.chunk * 8 - 2, _this.chunk - 2);
-	_this.drawsharpS();
-	_this.drawX();
-	_this.drawText();
-}
 
-// 画横线
-xdo.drawRowLine = function () {
-	for (var i = 1; i <= 10; i++) {
-		this.drawLine(1, i, 9, i);
-	}
-}
-// 画竖线
-xdo.drawColLine = function () {
-	for (var i = 1; i <= 9; i++) {
-		this.drawLine(i, 1, i, 10);
-	}
-}
+
+
 // 画直线
 xdo.drawLine = function (x0, y0, x1, y1, lw) {
 	var x0 = x0 * this.chunk;
@@ -165,23 +208,7 @@ xdo.drawLine = function (x0, y0, x1, y1, lw) {
 	this.ctx.stroke();
 	this.ctx.closePath();
 }
-// 画#
-xdo.drawsharpS = function () {
-	this.round(2, 3);
-	this.round(8, 3);
-	this.round(1, 4);
-	this.round(3, 4);
-	this.round(5, 4);
-	this.round(7, 4);
-	this.round(9, 4);
-	this.round(2, 8);
-	this.round(8, 8);
-	this.round(1, 7);
-	this.round(3, 7);
-	this.round(5, 7);
-	this.round(7, 7);
-	this.round(9, 7);
-}
+
 // 画单个#
 xdo.round = function (x0, y0) {
 	var x0 = x0 * this.chunk;
@@ -212,24 +239,6 @@ xdo.round = function (x0, y0) {
 	this.ctx.stroke();
 	this.ctx.closePath();
 }
-// 画X
-xdo.drawX = function () {
-	this.drawLine(4, 1, 6, 3, 0.5);
-	this.drawLine(4, 3, 6, 1, 0.5);
-	this.drawLine(4, 8, 6, 10, 0.5);
-	this.drawLine(4, 10, 6, 8, 0.5);
-}
-// 画楚河/漢界
-xdo.drawText = function () {
-	this.ctx.font = "30px Courier New";
-	this.ctx.fillStyle = "#000";
-	this.ctx.fillText("楚 河", this.chunk * 2, this.chunk * 5 + this.chunk / 2 + 10);
-	this.ctx.fillText("漢 界", this.chunk * 6, this.chunk * 5 + this.chunk / 2 + 10);
-	this.ctx.font = "12px Courier New";
-	this.text_arr = ["九", "八", "七", "六", "五", "四", "三", "二", "一"];
-	for (var i = 0; i < 9; i++) {
-		this.ctx.fillText((i + 1).toString(), this.chunk * (i + 1) - 5, 20);
-		this.ctx.fillText(this.text_arr[i], this.chunk * (i + 1) - 5, this.chunk * 10 + 30 + 10);
-	}
-}
+
+
 
