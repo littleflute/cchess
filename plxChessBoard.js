@@ -1,4 +1,4 @@
-var tag = "[plxChessBoard.js_v0.134] ";
+var tag = "[plxChessBoard.js_v0.135] ";
 var nTest = 0;
 
 function animateFrame(time) {
