@@ -83,9 +83,9 @@
   </div> 
 </div>
 
-<h3>Dropdown Menu inside a Navigation Bar</h3> 
+<h3>CChess board</h3> 
 
-<canvas id="myCanvas" width="2048" height="1536"></canvas>
+<canvas id="myCanvas" style="border:red 1px solid;" width="1024" height="780"></canvas>
 <script src="./plxChessBoard.js"></script>
 <script type="text/javascript">
 
@@ -103,23 +103,20 @@
     var x = -1, y = -1;
     var b = false;
  
-    c.onmousedown  = function(e){        
-        e = e || window.event;        	
+    window.onmousedown  = function(e){       
         b = true;
         x = e.clientX;
         y = e.clientY; 
     }
     
-    c.onmousemove  = function(e){        
-        e = e || window.event;        	
+    window.onmousemove  = function(e){               	
         if(b){
             x = e.clientX;
             y = e.clientY; 
         }    
     }
 
-    c.onmouseup  = function(e){        
-        e = e || window.event;        	
+    window.onmouseup  = function(e){         
         b = false; 
         x = -1;
         y = -1;
@@ -137,6 +134,7 @@
 	    _ctx.fillStyle = "blue";
       _ctx.fillText(_s2draw, 550,55);
       _ctx.fillText("["+x+","+y+"]", 550,155);
+      _ctx.fillRect(x,y,33,33);
 
       _ctx.font = oldFont;
       _ctx.fillText = old_fillText;
