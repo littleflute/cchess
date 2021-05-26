@@ -1,7 +1,7 @@
-var tag = "[plxChessBoard.js_v0.133] ";
+var tag = "[plxChessBoard.js_v0.134] ";
 var nTest = 0;
 
-function createFrame(time) {
+function animateFrame(time) {
     o.makeFrame(time);
 }
 
