@@ -8,6 +8,8 @@ function createFrame(time) {
 
 function CPlxCChessBoard(){
     nTest++;
+	var _lr = true;
+	var _x = 110;
     var _w = 800;
     var _h = 800;
     var _radius = 23;
@@ -16,11 +18,11 @@ function CPlxCChessBoard(){
 	var canvas = document.getElementById("myCanvas");
     var _ctx = canvas.getContext("2d"); 
 	// 画直线
-	var drawLine = function (x0, y0, x1, y1, lw) {
-		var x0 = x0 * _chunk;
-		var y0 = y0 * _chunk;
-		var x1 = x1 * _chunk;
-		var y1 = y1 * _chunk;
+	var drawLine = function (i0, j0, i1, j1, lw) {
+		var x0 = _x + i0 * _chunk;
+		var y0 = j0 * _chunk;
+		var x1 = _x + i1 * _chunk;
+		var y1 = j1 * _chunk;
 		_ctx.beginPath();
 		_ctx.strokeStyle = "#000";
 		_ctx.lineWidth = lw ? lw : 1;
@@ -45,13 +47,13 @@ function CPlxCChessBoard(){
 	
 
 	// 画单个#
-	var round = function (x0, y0) {
-		var x0 = x0 * _chunk;
-		var y0 = y0 * _chunk;
+	var round = function (i, j) {
+		var x0 = _x + i * _chunk;
+		var y0 = j * _chunk;
 		_ctx.beginPath();
 		_ctx.strokeStyle = "#000";
 		_ctx.lineWidth = 1;
-		if (x0 != _chunk) {
+		if (i != 1) {
 			// 左上
 			_ctx.moveTo(x0 - 5, y0 - 10);
 			_ctx.lineTo(x0 - 5, y0 - 5);
@@ -61,7 +63,7 @@ function CPlxCChessBoard(){
 			_ctx.lineTo(x0 - 5, y0 + 5);
 			_ctx.lineTo(x0 - 10, y0 + 5);
 		}
-		if (x0 != _chunk * 9) {
+		if (i != 9) {
 			// 右上
 			_ctx.moveTo(x0 + 5, y0 - 10);
 			_ctx.lineTo(x0 + 5, y0 - 5);
@@ -74,9 +76,6 @@ function CPlxCChessBoard(){
 		_ctx.stroke();
 		_ctx.closePath();
 	}
-
-
-
 
 	// 画#
 	var drawsharpS = function () {
@@ -106,13 +105,13 @@ function CPlxCChessBoard(){
 	var drawText = function () {
 		_ctx.font = "30px Courier New";
 		_ctx.fillStyle = "#000";
-		_ctx.fillText("楚 河", _chunk * 2, _chunk * 5 + _chunk / 2 + 10);
-		_ctx.fillText("漢 界", _chunk * 6, _chunk * 5 + _chunk / 2 + 10);
+		_ctx.fillText("楚 河",_x + _chunk * 2, _chunk * 5 + _chunk / 2 + 10);
+		_ctx.fillText("漢 界",_x + _chunk * 6, _chunk * 5 + _chunk / 2 + 10);
 		_ctx.font = "12px Courier New";
 		var text_arr = ["九", "八", "七", "六", "五", "四", "三", "二", "一"];
 		for (var i = 0; i < 9; i++) {
-			_ctx.fillText((i + 1).toString(), _chunk * (i + 1) - 5, 20);
-			_ctx.fillText(text_arr[i], _chunk * (i + 1) - 5, _chunk * 10 + 30 + 10);
+			_ctx.fillText((i + 1).toString(), _x + _chunk * (i + 1) - 5, 20);
+			_ctx.fillText(text_arr[i],_x + _chunk * (i + 1) - 5, _chunk * 10 + 30 + 10);
 		}
 	}
 
@@ -120,7 +119,7 @@ function CPlxCChessBoard(){
     var drawBoard = function () {
 		drawRowLine();
 		drawColLine();
-		_ctx.clearRect(_chunk + 1, _chunk * 5 + 1, _chunk * 8 - 2, _chunk - 2);
+		_ctx.clearRect(_x + _chunk + 1, _chunk * 5 + 1, _chunk * 8 - 2, _chunk - 2);
 		drawsharpS();
 		drawX();
 		drawText();
@@ -133,7 +132,7 @@ function CPlxCChessBoard(){
         ctx.fillStyle = e.bgcolor;
         ctx.strokeStyle = e.bgColor_b;
         ctx.lineWidth = 2;
-        ctx.arc(e.x * chunk, e.y * chunk, radius, 0, Math.PI * 2, true);
+        ctx.arc(_x + e.x * chunk, e.y * chunk, radius, 0, Math.PI * 2, true);
         ctx.closePath();
         ctx.fill();
         ctx.stroke();
@@ -143,7 +142,7 @@ function CPlxCChessBoard(){
         ctx.font = "30px Arial";
         ctx.fillStyle = e.color;
         var offset = 16;//this.ctx.measureText(e.text).width / 2;
-        ctx.fillText(e.text, e.x * chunk - offset, e.y * chunk + 10);
+        ctx.fillText(e.text, _x + e.x * chunk - offset, e.y * chunk + 10);
     }
 
     // 棋子初始化
@@ -184,7 +183,7 @@ function CPlxCChessBoard(){
 	//Jeremy for debug
 	Car_b1.color = "green";
 	Car_b1.bgcolor = "blue";
-	Car_b1.bgColor_b = "green";
+	Car_b1.bgColor_b = "red";
 	Car_b1.type = "black";
 	_drawPiece(_ctx,_chunk, _radius, Car_b1);
 	_drawChessText(_ctx,_chunk,Car_b1);
@@ -198,6 +197,12 @@ function CPlxCChessBoard(){
 }
 
     var _dbg = function(time){
+		_x += 5 * (_lr?1:-1);
+		if(_lr && _x>222) {
+			_lr = false;
+		} 
+		else if(!_lr && _x<10)  _lr = true;
+
         var oldFont = _ctx.font;
         var old_fillText = _ctx.fillText;
         var old_fillStyle = _ctx.fillStyle;
@@ -219,9 +224,9 @@ function CPlxCChessBoard(){
         _ctx.fillText = old_fillText;
 	    _ctx.fillStyle = old_fillStyle;
     }
+
     this.makeFrame = function (time){ 
-        _dbg(time);
- 
+        _dbg(time); 
 		drawBoard();
         _init_chess();
     }
