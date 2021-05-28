@@ -1,0 +1,66 @@
+{
+    "request": {
+        "version": "0.0.15",
+        "width": 1024,
+        "height": 768,
+        "music": "1.mp3",
+        "rate": "10",
+        "frames": [
+            {
+                "number": "1",
+                "time": "251",
+                "objects": [
+                    {
+                        "text": "${VAR_TITLE}",
+                        "x": 100,
+                        "y": 600,
+                        "size": 50,
+                        "color": "50,150,120",
+                        "layer": 2
+                    }
+                ],
+                "backgroundColor": "200,200,222"
+            }
+        ],
+        "superObjects": [
+            {
+                "type": "javascript",
+                "frameRange": "(1,100)",
+                "attribute": {
+                    "script": "${VAR_JS_PLUGIN_XD_CCHESS}",
+                    "function": "animateFrame",
+                    "start": 1
+                },
+                "layer": 1
+            },
+            {
+                "type": "javascript",
+                "frameRange": "(111,250)",
+                "attribute": {
+                    "script": "${VAR_JS_PLUGIN1}",
+                    "function": "animateFrame",
+                    "start": 1
+                },
+                "layer": 1
+            } 
+        ],
+        "Macros": [
+            {
+                "name": "VAR_TITLE",
+                "value": "JavaScript远程多插件调用动画演示"
+            },
+            {
+                "name": "VAR_JS_PLUGIN1",
+                "value": "https://jeremyjia.github.io/Games/pbzTools/scriptengine/plugin/plxCloud.js"
+            },
+            {
+                "name": "VAR_JS_PLUGIN2",
+                "value": "https://jeremyjia.github.io/Games/pbzTools/scriptengine/plugin/plxChessBoard.js"
+            },
+            {
+                "name": "VAR_JS_PLUGIN_XD_CCHESS",
+                "value": "https://raw.githubusercontent.com/littleflute/cchess/master/plxChessBoard.js"
+            }
+        ]
+    }
+}
