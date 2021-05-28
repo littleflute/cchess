@@ -66,7 +66,7 @@
 <body>
 
 <div class="navbar">
-  <a target = "_blank" href="https://github.com/littleflute/cchess/edit/master/index.html">v0.0.11</a>
+  <a target = "_blank" href="https://github.com/littleflute/cchess/edit/master/index.html">v0.0.12</a>
   <a href="play">play</a>
   <a href="ref">ref</a>
   <a href="ZuoWei/FeiXiang">ZuoWei</a>
@@ -85,14 +85,14 @@
 
 <h3>CChess board</h3> 
 
-<canvas id="myCanvas" style="border:red 1px solid;" width="1024" height="780"></canvas>
+<canvas id="myCanvas" style="float:left; border:red 1px solid;" width=1024 height=800></canvas>
 <script src="./plxChessBoard.js"></script>
 <script type="text/javascript">
 
   var time = 0;
   var fun = function () {
     time++;
-    createFrame(time);
+    animateFrame(time);
     ge.draw();
   }
   setInterval(fun, 100);
@@ -104,15 +104,15 @@
     var b = false;
  
     c.onmousedown  = function(e){       
-        b = true;
-        x = e.clientX;
-        y = e.clientY; 
+        b = true; 
+        x = e.offsetX;//e.clientX;
+        y = e.offsetY;//e.clientY; 
     }
     
     c.onmousemove  = function(e){               	
         if(b){
-            x = e.clientX;
-            y = e.clientY; 
+            x = e.offsetX;//e.clientX;
+            y = e.offsetY;//e.clientY; 
         }    
     }
 
@@ -132,9 +132,9 @@
               
        _ctx.font = 22 + "px Arial";
 	    _ctx.fillStyle = "blue";
-      _ctx.fillText(_s2draw, 550,55);
-      _ctx.fillText("["+x+","+y+"]", 550,155);
-      _ctx.fillRect(x,y,33,33);
+      _ctx.fillText(_s2draw, 555,55);
+      _ctx.fillText("["+x+","+y+"]", 555,155);
+      _ctx.fillRect(x-15,y-15,30,30);
 
       _ctx.font = oldFont;
       _ctx.fillText = old_fillText;
