@@ -1,9 +1,9 @@
 {
     "request": {
-        "version": "0.0.15",
+        "version": "0.0.21",
         "width": 1024,
         "height": 768,
-        "music": "1.mp3",
+        "music": "https://littleflute.github.io/Songs/mp3/红河谷1.mp3",
         "rate": "10",
         "frames": [
             {
