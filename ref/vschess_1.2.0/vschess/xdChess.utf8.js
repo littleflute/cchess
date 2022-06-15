@@ -1,9 +1,76 @@
-(function(window,undefined){var DefaultPath=document.documentElement.lastChild.lastChild.src.split("/");DefaultPath[DefaultPath.length-1]="";DefaultPath=DefaultPath.join("/");var ZeroClipboard={version:"1.0.7",clients:{},moviePath:DefaultPath+'copy.swf',nextId:0,$:function(thingy){if(typeof(thingy)=='string'){thingy=document.getElementById(thingy);}
-if(!thingy.addClass){thingy.hide=function(){this.style.display='none';};thingy.show=function(){this.style.display='';};thingy.addClass=function(name){this.removeClass(name);this.className+=' '+name;};thingy.removeClass=function(name){var classes=this.className.split(/\s+/);var idx=-1;for(var k=0;k<classes.length;k++){if(classes[k]==name){{idx=k;k=classes.length;}}}
-if(idx>-1){classes.splice(idx,1);this.className=classes.join(' ');}
-return this;};thingy.hasClass=function(name){return!!this.className.match(new RegExp("\\s*"+name+"\\s*"));};}
-return thingy;},dispatch:function(id,eventName,args){var client=this.clients[id];if(client){client.receiveEvent(eventName,args);}},register:function(id,client){this.clients[id]=client;},getDOMObjectPosition:function(obj,stopObj){var info={left:0,top:0,width:obj.width?obj.width:obj.offsetWidth,height:obj.height?obj.height:obj.offsetHeight};while(obj&&(obj!=stopObj)){info.left+=obj.offsetLeft;info.top+=obj.offsetTop;obj=obj.offsetParent;}
-return info;},Client:function(elem){this.handlers={};this.id=ZeroClipboard.nextId++;this.movieId='vschess_copybutton_'+this.id;ZeroClipboard.register(this.id,this);if(elem){this.glue(elem);}}};ZeroClipboard.Client.prototype={id:0,ready:false,movie:null,clipText:'',handCursorEnabled:true,cssEffects:true,handlers:null,glue:function(elem,appendElem,stylesToAdd){this.domElement=ZeroClipboard.$(elem);var zIndex=12000;if(this.domElement.style.zIndex){zIndex=parseInt(this.domElement.style.zIndex,10)+1;}
+(function(window,undefined){
+    var DefaultPath=document.documentElement.lastChild.lastChild.src.split("/");
+    DefaultPath[DefaultPath.length-1]="";DefaultPath=DefaultPath.join("/");
+    var ZeroClipboard={
+        version:"1.0.7",
+        clients:{},
+        moviePath:DefaultPath+'copy.swf',
+        nextId:0,
+        $:function(thingy){
+            if(typeof(thingy)=='string'){
+                thingy=document.getElementById(thingy);
+            }
+            if(!thingy.addClass){
+                thingy.hide=function(){
+                    this.style.display='none';
+                };
+                thingy.show=function(){
+                    this.style.display='';
+                };
+                thingy.addClass=function(name){
+                    this.removeClass(name);
+                    this.className+=' '+name;
+                };
+                thingy.removeClass=function(name){
+                    var classes=this.className.split(/\s+/);
+                    var idx=-1;
+                    for(var k=0;k<classes.length;k++){
+                        if(classes[k]==name){
+                            {idx=k;k=classes.length;}
+                        }
+                    }
+                    if(idx>-1){
+                        classes.splice(idx,1);
+                        this.className=classes.join(' ');
+                    }
+                    return this;
+                };
+                thingy.hasClass=function(name){
+                    return!!this.className.match(new RegExp("\\s*"+name+"\\s*"));
+                };
+            }
+            return thingy;
+        },
+        dispatch:function(id,eventName,args){
+            var client=this.clients[id];
+            if(client){
+                client.receiveEvent(eventName,args);
+            }
+        },
+        register:function(id,client){
+            this.clients[id]=client;
+        },
+        getDOMObjectPosition:function(obj,stopObj){
+            var info={
+                left:0,
+                top:0,
+                width:obj.width?obj.width:obj.offsetWidth,
+                height:obj.height?obj.height:obj.offsetHeight
+            };
+            while(obj&&(obj!=stopObj)){
+                info.left+=obj.offsetLeft;info.top+=obj.offsetTop;obj=obj.offsetParent;
+            }
+            return info;
+        },
+        Client:function(elem){
+            this.handlers={};
+            this.id=ZeroClipboard.nextId++;
+            this.movieId='vschess_copybutton_'+this.id;
+            ZeroClipboard.register(this.id,this);
+            if(elem){this.glue(elem);}
+        }
+    };
+    ZeroClipboard.Client.prototype={id:0,ready:false,movie:null,clipText:'',handCursorEnabled:true,cssEffects:true,handlers:null,glue:function(elem,appendElem,stylesToAdd){this.domElement=ZeroClipboard.$(elem);var zIndex=12000;if(this.domElement.style.zIndex){zIndex=parseInt(this.domElement.style.zIndex,10)+1;}
 if(typeof(appendElem)=='string'){appendElem=ZeroClipboard.$(appendElem);}
 else if(typeof(appendElem)=='undefined'){appendElem=document.getElementsByTagName('body')[0];}
 var box=ZeroClipboard.getDOMObjectPosition(this.domElement,appendElem);this.div=document.createElement('div');var style=this.div.style;style.position='absolute';style.left=''+box.left+'px';style.top=''+box.top+'px';style.width=''+box.width+'px';style.height=''+box.height+'px';style.zIndex=zIndex;if(typeof(stylesToAdd)=='object'){for(addedStyle in stylesToAdd){style[addedStyle]=stylesToAdd[addedStyle];}}
@@ -1603,4 +1670,5 @@ $setddom.children("div:eq("+$changemove+")").remove();vschess.pfreload[vschess.a
 return vschess.api;};vschess.api.showNodeList=vschess.api.shownodelist;vschess.api.hidenodelist=function(){vschess.api.thisdom.find("ul.vschess_node,div.vschess_node_title,div.vschess_node_close").hide();if(typeof arguments[0]=="function"){arguments[0]();}
 return vschess.api;};vschess.api.hideNodeList=vschess.api.hidenodelist;vschess.api.refreshchess=function(){vschess.getnewdom[vschess.api.boardid]();return vschess.api;};vschess.api.refreshChess=vschess.api.refreshchess;vschess.api.toString=function(){return"微思象棋播放器"+vschess.version;};if(typeof window.vschess=="undefined"){window.vschess=vschess;$.fn.vschess=function(){if(typeof arguments[0]!="undefined"){var $args=arguments[0];}
 return this.each(function(){if(typeof $args=="undefined"){vschess.load(this);}
-else{vschess.load(this,$args);}});};}})(jQuery,window);
+else{vschess.load(this,$args);}});};}}
+)(jQuery,window);
